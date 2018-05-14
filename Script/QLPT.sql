@@ -12,7 +12,19 @@ create table KHACH_THUE
 	CMND char(12),
 	DiaChiThuongTru nvarchar(50),
 	NgheNghiep nvarchar(20),
+	MaPhong varchar(5),
 	PRIMARY KEY (MaKhachThue)
+)
+
+create table _USER
+(
+	UserID varchar(10),
+	UserName varchar(20),
+	Password varchar(30),
+	IsAdmin boolean,
+	MaKhachThue varchar(5),
+	MaPhong varchar(5),
+	PRIMARY KEY (UserID)
 )
 
 create table CHI_TIEU
@@ -42,6 +54,7 @@ create table HOP_DONG
 	MaKhachThue varchar(5),
 	TenKhachTro nvarchar(31),
 	NgayThue datetime,
+	LuaChon int,
 	PRIMARY KEY (MaHopDong)
 )
 
@@ -78,6 +91,14 @@ create table THIET_BI
 	MaPhong varchar(5),
 	PRIMARY KEY (MaThietBi)
 )
+ALTER TABLE KHACH_THUE ADD CONSTRAINT FK_KHACH_THUE_PHONG FOREIGN KEY (MaPhong)
+REFERENCES PHONG(MaPhong)
+
+ALTER TABLE _USER ADD CONSTRAINT FK_USER_PHONG FOREIGN KEY (MaPhong)
+REFERENCES PHONG(MaPhong)
+
+ALTER TABLE _USER ADD CONSTANT FK_USER_KHACH_THUE FOREIGN KEY (MaKhachThue)
+REFERENCES KHACH_THUE(MaKhachThue)
 
 ALTER TABLE THIET_BI ADD CONSTRAINT FK_THIETBI_PHONG FOREIGN KEY (MaPhong)
 REFERENCES PHONG(MaPhong)
