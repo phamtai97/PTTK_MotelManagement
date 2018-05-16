@@ -1,28 +1,29 @@
-create database if not exists QLNT
+create database QLNT
 
 use QLNT
 
-create table KHACH_THUE
+create table KHACH_TRO
 (
-	MaKhachThue varchar(5) NOT NULL,
+	MaKhachTro varchar(5) NOT NULL,
 	TenKhachThue nvarchar(31),
 	Phai nvarchar(5),
 	NgaySinh datetime,
+	SDT varchar(20),
 	QueQuan nvarchar(50),
 	CMND char(12),
 	DiaChiThuongTru nvarchar(50),
 	NgheNghiep nvarchar(20),
 	MaPhong varchar(5),
-	PRIMARY KEY (MaKhachThue)
+	PRIMARY KEY (MaKhachTro)
 )
 
 create table _USER
 (
 	UserID varchar(10),
 	UserName varchar(20),
-	Password varchar(30),
+	Pwd varchar(30),
 	IsAdmin boolean,
-	MaKhachThue varchar(5),
+	MaKhachTro varchar(5),
 	MaPhong varchar(5),
 	PRIMARY KEY (UserID)
 )
@@ -51,7 +52,7 @@ create table HOP_DONG
 (
 	MaHopDong varchar(5) NOT NULL,
 	MaPhong varchar(5),
-	MaKhachThue varchar(5),
+	MaKhachTro varchar(5),
 	TenKhachTro nvarchar(31),
 	NgayThue datetime,
 	LuaChon int,
@@ -92,14 +93,14 @@ create table THIET_BI
 	PRIMARY KEY (MaThietBi)
 )
 
-ALTER TABLE KHACH_THUE ADD CONSTRAINT FK_KHACH_THUE_PHONG FOREIGN KEY (MaPhong)
+ALTER TABLE KHACH_TRO ADD CONSTRAINT FK_KHACH_TRO_PHONG FOREIGN KEY (MaPhong)
 REFERENCES PHONG(MaPhong)
 
 ALTER TABLE _USER ADD CONSTRAINT FK_USER_PHONG FOREIGN KEY (MaPhong)
 REFERENCES PHONG(MaPhong)
 
-ALTER TABLE _USER ADD CONSTRAINT FK_USER_KHACH_THUE FOREIGN KEY (MaKhachThue)
-REFERENCES KHACH_THUE(MaKhachThue)
+ALTER TABLE _USER ADD CONSTRAINT FK_USER_KHACH_TRO FOREIGN KEY (MaKhachTro)
+REFERENCES KHACH_TRO(MaKhachTro)
 
 ALTER TABLE THIET_BI ADD CONSTRAINT FK_THIETBI_PHONG FOREIGN KEY (MaPhong)
 REFERENCES PHONG(MaPhong)
@@ -107,8 +108,8 @@ REFERENCES PHONG(MaPhong)
 ALTER TABLE HOP_DONG ADD CONSTRAINT FK_HOPDONG_PHONG FOREIGN KEY (MaPhong)
 REFERENCES PHONG(MaPhong)
 
-ALTER TABLE HOP_DONG ADD CONSTRAINT FK_HOPDONG_KHACHTHUE FOREIGN KEY (MaKhachThue)
-REFERENCES KHACH_THUE(MaKhachThue)
+ALTER TABLE HOP_DONG ADD CONSTRAINT FK_HOPDONG_KHACHTRO FOREIGN KEY (MaKhachTro)
+REFERENCES KHACH_TRO(MaKhachTro)
 
 ALTER TABLE HOA_DON ADD CONSTRAINT FK_HOADON_PHONG FOREIGN KEY (MaPhong)
 REFERENCES PHONG(MaPhong)
@@ -116,7 +117,3 @@ REFERENCES PHONG(MaPhong)
 ALTER TABLE CHI_TIET_DV ADD CONSTRAINT FK_CHI_TIET_DV_DICH_VU FOREIGN KEY (MaDichVu)
 REFERENCES DICH_VU(MaDichVu)
 ALTER TABLE CHI_TIET_DV ADD CONSTRAINT FK_CHI_TIET_DV_HOA_DON FOREIGN KEY ( MaHoaDon ) REFERENCES HOA_DON ( MaHoaDon )
-
-
-
-
