@@ -3,8 +3,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/mnt/905012A150128DDA/AJPham/Nam3_ki2/PTTKPM/deadline/PTTK_MotelManagement/QLNhaTro/src/GUI/QLKhachThueTroGUI.java</file>
             <file>file:/mnt/905012A150128DDA/AJPham/Nam3_ki2/PTTKPM/deadline/PTTK_MotelManagement/QLNhaTro/src/GUI/QLNhaTroGUI.java</file>
+=======
+            <file>file:/C:/Users/billg/Desktop/PTTK_MotelManagement/QLNhaTro/src/qlnhatro/gui/QLPhongTroGUI.java</file>
+            <file>file:/C:/Users/billg/Desktop/PTTK_MotelManagement/QLNhaTro/src/qlnhatro/gui/QLTaiChinhGUI.java</file>
+            <file>file:/C:/Users/billg/Desktop/PTTK_MotelManagement/QLNhaTro/src/qlnhatro/gui/QLThietBiGUI.java</file>
+            <file>file:/C:/Users/billg/Desktop/PTTK_MotelManagement/QLNhaTro/src/qlnhatro/gui/QLKhachThueTroGUI.java</file>
+            <file>file:/C:/Users/billg/Desktop/PTTK_MotelManagement/QLNhaTro/src/qlnhatro/gui/QLGiaDichVuGUI.java</file>
+            <file>file:/C:/Users/billg/Desktop/PTTK_MotelManagement/QLNhaTro/src/DAO/DataProvider.java</file>
+            <file>file:/C:/Users/billg/Desktop/PTTK_MotelManagement/QLNhaTro/src/qlnhatro/gui/DangKiThuePhongGUI.java</file>
+            <file>file:/C:/Users/billg/Desktop/PTTK_MotelManagement/QLNhaTro/src/qlnhatro/gui/LoginGUI.java</file>
+            <file>file:/C:/Users/billg/Desktop/PTTK_MotelManagement/QLNhaTro/src/qlnhatro/gui/QLNhaTroGUI.java</file>
+            <file>file:/C:/Users/billg/Desktop/PTTK_MotelManagement/QLNhaTro/src/qlnhatro/gui/DoiMatKhauGUI.java</file>
+            <file>file:/C:/Users/billg/Desktop/PTTK_MotelManagement/QLNhaTro/src/qlnhatro/gui/QLChiTieu.java</file>
+>>>>>>> 4c9638f8d32655af7cf429d16bc16acfd4e933dd
         </group>
     </open-files>
 </project-private>
