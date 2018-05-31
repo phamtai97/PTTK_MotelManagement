@@ -21,7 +21,12 @@ public class DataProvider {
     private Connection conn;
     private String url, userName, password;
     
-    public void ReadFileProperties() {
+    public DataProvider(){
+        this.conn = null;
+        this.url = this.userName = this.password = "";
+    }
+    
+    public void readFileProperties() {
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
         Properties properties = new Properties();
         try {
@@ -38,9 +43,9 @@ public class DataProvider {
         }
     }
     
-    public Connection GetDataConnection(){
+    public Connection getDataConnection(){
         conn = null;
-        ReadFileProperties();
+        readFileProperties();
         try {
             Class.forName("com.mysql.jdbc.Driver");
             conn = (Connection) DriverManager.getConnection(url, userName, password);
@@ -53,7 +58,7 @@ public class DataProvider {
         return conn;
     }
     
-    public void CloseConnection(){
+    public void closeConnection(){
         try {
             conn.close();
         } catch (SQLException ex) {
@@ -63,7 +68,7 @@ public class DataProvider {
 
     public static void main(String[] args) {
         DataProvider dataProvider = new DataProvider();
-        Connection conn = dataProvider.GetDataConnection();
+        Connection conn = dataProvider.getDataConnection();
         
         
         if (conn == null) {
