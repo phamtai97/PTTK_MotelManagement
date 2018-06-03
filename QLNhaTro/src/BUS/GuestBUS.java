@@ -7,6 +7,7 @@ package BUS;
 
 import DAO.GuestDAO;
 import DTO.GuestDTO;
+import DTO.UserDTO;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
@@ -19,6 +20,11 @@ public class GuestBUS {
     
     public GuestBUS(){
         this._guestDAO = new GuestDAO();
+    }
+    
+    // check account
+    public boolean checkAccount(UserDTO user) {
+        return this._guestDAO.CheckAcount(user);
     }
     
     //lay ds khach tro

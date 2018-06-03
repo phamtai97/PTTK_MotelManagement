@@ -5,12 +5,15 @@
  */
 package GUI;
 
+import BUS.GuestBUS;
+import DTO.UserDTO;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -34,11 +37,13 @@ public class QLNhaTroGUI extends javax.swing.JFrame {
     static DoiMatKhauGUI doiMatKhauGUI;
     static ThongKeGUI thongKeGUI;
     static ThonTinPhanMemGUI thongTinPhanMemGUI;
+    public static UserDTO user;
     
     public QLNhaTroGUI() {
-        if(Login() == false){
-            System.exit(0);
-        }
+        
+//        if(Login() == false){
+//            JOptionPane.showMessageDialog(null, "Xin kiểm tra lại.");
+//        }
         
         initComponents();
         //chinh full man hinh
@@ -361,9 +366,16 @@ public class QLNhaTroGUI extends javax.swing.JFrame {
             return false;
         }
         
+        user = new UserDTO();
+        user.setUsername(userName);
+        user.setPassword(password);
         //kiem tra username password
-        login.setVisible(false);
-        return true;
+        GuestBUS guestbus = new GuestBUS();
+        if (guestbus.checkAccount(user) == true) {
+            login.setVisible(false);
+            return true;
+        }
+        return false;
     }
     
     

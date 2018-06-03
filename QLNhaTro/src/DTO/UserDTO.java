@@ -15,6 +15,13 @@ public class UserDTO {
     private String _password;
     private int _isAdmin;
 
+    public UserDTO() 
+    {
+        this._isAdmin = 0;
+        this._userID = "";
+        this._username = "";
+        this._password = "";
+    }
     public UserDTO(String _userID, String _username, String _password, int _isAdmin){
         this._userID = _userID;
         this._username = _username;

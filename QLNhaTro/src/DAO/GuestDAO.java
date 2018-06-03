@@ -6,6 +6,7 @@
 package DAO;
 
 import DTO.GuestDTO;
+import DTO.UserDTO;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -30,6 +31,26 @@ public class GuestDAO {
         this._resultSet = null;
     }
 
+    // Kiem tra tai khoan
+    public boolean CheckAcount(UserDTO user) {
+        String sql = "select * from User_KhachTro where TenDangNhap='" + user.getUsername() + "' and MatKhau='" + user.getPassword() + "' and IsAdmin=1";
+        
+        //String sql = String.format("select * from ", os)
+        try {
+            this._preparedStatement = this._dataProvider.getDataConnection().prepareStatement(sql);
+            this._resultSet = this._preparedStatement.executeQuery();
+            
+            if (this._resultSet.next() == false) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(GuestDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
     //lay tat ca khach thue tro
     public ArrayList<GuestDTO> getAllGuest() {
         String sql = "select MaKhachTro, TenKhachTro, Phai, NgaySinh, QueQuan , CMND, DiaChiThuongTru, NgheNghiep, DienThoai, TinhTrang from KhachTro";

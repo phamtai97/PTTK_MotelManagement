@@ -5,6 +5,14 @@
  */
 package GUI;
 
+import BUS.GuestBUS;
+import DTO.UserDTO;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -168,20 +176,80 @@ public class LoginGUI extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Mã hóa MD5
+    public static String md5Java(String message) {
+         
+         String digest = null;
+
+        try {
+            
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] hash = md.digest(message.getBytes("UTF-8"));
+ 
+            //converting byte array to Hexadecimal String
+            StringBuilder sb = new StringBuilder(2 * hash.length);
+            for (byte b : hash) {
+                sb.append(String.format("%02x", b & 0xff));
+            }
+ 
+            digest = sb.toString();
+            
+            return digest;
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(LoginGUI.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(LoginGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return "";
+    }
+    
     //sự kiện bấm nút login 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         _userName = tfUserName.getText();
-        _password = String.valueOf(tfPassword.getPassword());
-        setVisible(false);
-        dispose();
+        _password = md5Java(String.valueOf(tfPassword.getPassword()));
+        
+        //String userName = "", password = "";
+        //LoginGUI login = new LoginGUI(this, true);
+        //login.setVisible(true);
+        //userName = login.getUserName();
+        //password = login.getPassWord();
+        if(_userName.length() == 0 || _password.length() == 0){
+            JOptionPane.showMessageDialog(null, "Xin kiểm tra lại");
+        }
+        
+        UserDTO user = new UserDTO();
+        user.setUsername(_userName);
+        user.setPassword(_password);
+        //kiem tra username password
+        GuestBUS guestbus = new GuestBUS();
+        if (guestbus.checkAccount(user) == true) {
+            //login.setVisible(false);
+            this.setVisible(false);
+           // return true;
+           java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new QLNhaTroGUI().setVisible(true);
+            }
+        });
+        }
+        else 
+        {
+            JOptionPane.showMessageDialog(null, "Xin kiểm tra lại");
+
+        }
+        //return false;
+        //setVisible(false);
+        //dispose();
     }//GEN-LAST:event_btnLoginActionPerformed
 
+    
     //Sự kiện bấm nút cancel 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         _userName = "";
         _password = "";
         setVisible(false);
         dispose();
+        System.exit(0);
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
@@ -189,6 +257,7 @@ public class LoginGUI extends javax.swing.JDialog {
         _password = "";
         setVisible(false);
         dispose();        // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_formWindowClosing
 
     public String getUserName() {
