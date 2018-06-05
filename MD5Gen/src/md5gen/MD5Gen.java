@@ -46,7 +46,7 @@ public class MD5Gen {
     
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.println(md5Java("billhcmus"));
+        System.out.println(md5Java("admin"));
     }
     
 }

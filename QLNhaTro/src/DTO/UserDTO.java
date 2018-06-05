@@ -15,6 +15,12 @@ public class UserDTO {
     private String _password;
     private int _isAdmin;
 
+    public UserDTO(String _userID, String _username, String _password, int _isAdmin){
+        this._userID = _userID;
+        this._username = _username;
+        this._password = _password;
+        this._isAdmin = _isAdmin;
+    }
     public UserDTO() 
     {
         this._isAdmin = 0;
@@ -22,13 +28,6 @@ public class UserDTO {
         this._username = "";
         this._password = "";
     }
-    public UserDTO(String _userID, String _username, String _password, int _isAdmin){
-        this._userID = _userID;
-        this._username = _username;
-        this._password = _password;
-        this._isAdmin = _isAdmin;
-    }
-
     public String getUserID() {
         return _userID;
     }

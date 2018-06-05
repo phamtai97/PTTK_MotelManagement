@@ -21,12 +21,6 @@ public class GuestBUS {
     public GuestBUS(){
         this._guestDAO = new GuestDAO();
     }
-    
-    // check account
-    public boolean checkAccount(UserDTO user) {
-        return this._guestDAO.CheckAcount(user);
-    }
-    
     //lay ds khach tro
     public ArrayList<GuestDTO> getAllGuest(){
         return _guestDAO.getAllGuest();
@@ -55,5 +49,14 @@ public class GuestBUS {
     //tim kiem khach tro theo ten
     public ArrayList<GuestDTO> findGuestByName(String guestName){
         return this._guestDAO.findGuestBYName(guestName);
+    }
+    
+    //update state Guest
+    public boolean updateStateGuest(String guestID){
+        return this._guestDAO.updateStateGuest(guestID);
+    }
+
+    public boolean checkAccount(UserDTO user) {
+        return this._guestDAO.checkAccount(user);
     }
 }

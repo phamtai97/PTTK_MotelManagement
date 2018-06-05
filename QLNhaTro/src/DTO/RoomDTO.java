@@ -11,15 +11,19 @@ package DTO;
  */
 public class RoomDTO {
     private String _roomID;
-    private String _roomState;
+    private int _roomState;
     private int _quanityOfGuest;
-    private RoomTypeDTO _roomType;
+    private String _roomTypeID;
 
-    public RoomDTO(String _roomID, String _roomState, int _quanityOfGuest, RoomTypeDTO _roomType) {
+    public RoomDTO(String _roomID, int _roomState, int _quanityOfGuest, String _roomTypeID) {
         this._roomID = _roomID;
         this._roomState = _roomState;
         this._quanityOfGuest = _quanityOfGuest;
-        this._roomType = _roomType;
+        this._roomTypeID = _roomTypeID;
+    }
+
+    public RoomDTO() {
+        
     }
 
     public String getRoomID() {
@@ -30,11 +34,11 @@ public class RoomDTO {
         this._roomID = _roomID;
     }
 
-    public String getRoomState() {
+    public int getRoomState() {
         return _roomState;
     }
 
-    public void setRoomState(String _roomState) {
+    public void setRoomState(int _roomState) {
         this._roomState = _roomState;
     }
 
@@ -46,12 +50,12 @@ public class RoomDTO {
         this._quanityOfGuest = _quanityOfGuest;
     }
 
-    public RoomTypeDTO getRoomType() {
-        return _roomType;
+    public String getRoomTypeID() {
+        return _roomTypeID;
     }
 
-    public void setRoomType(RoomTypeDTO _roomType) {
-        this._roomType = _roomType;
+    public void setRoomTypeID(String _roomType) {
+        this._roomTypeID = _roomType;
     }
     
     

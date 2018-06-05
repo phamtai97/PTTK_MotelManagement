@@ -5,6 +5,12 @@
  */
 package GUI;
 
+import BUS.RoomTypeBUS;
+import DTO.RoomTypeDTO;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author taipham
@@ -14,9 +20,22 @@ public class QLGiaDichVuGUI extends javax.swing.JInternalFrame {
     /**
      * Creates new form QLGiaDichVuGUI
      */
+    private RoomTypeBUS _roomTypeBUS;
+    private RoomTypeDTO _roomTypeDTO;
+    private static ArrayList<RoomTypeDTO> _listRoomType;
+    private DefaultTableModel _tableModel;
+
     public QLGiaDichVuGUI() {
         initComponents();
         this.setName("Giá dịch vụ");
+        tbRoomType.setFillsViewportHeight(true);
+        _roomTypeBUS = new RoomTypeBUS();
+        _roomTypeDTO = new RoomTypeDTO();
+        _tableModel = (DefaultTableModel) tbRoomType.getModel();
+        _listRoomType = _roomTypeBUS.getListRoomType();
+        showTableRoomType(_listRoomType);
+        btnSaveRoomType.setEnabled(false);
+        btnCancleRoomType.setEnabled(false);
     }
 
     /**
@@ -32,21 +51,23 @@ public class QLGiaDichVuGUI extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        cbLoaiPhong = new javax.swing.JComboBox<>();
+        cbRoomType = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        cbSoNguoi = new javax.swing.JComboBox<>();
+        cbMaxNumber = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        tfGiaPhong = new javax.swing.JTextField();
+        tfRoomPrice = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbRoomType = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
-        btnThemKhachThue2 = new javax.swing.JButton();
-        btnXoaKhachThue2 = new javax.swing.JButton();
-        btnSuaKhachThue2 = new javax.swing.JButton();
-        btnLuuKhachThue2 = new javax.swing.JButton();
-        btnHuyKhachThue2 = new javax.swing.JButton();
-        btnResetKhachThue2 = new javax.swing.JButton();
+        btnAddRoomType = new javax.swing.JButton();
+        btnDeleteRoomType = new javax.swing.JButton();
+        btnEditRoomType = new javax.swing.JButton();
+        btnSaveRoomType = new javax.swing.JButton();
+        btnCancleRoomType = new javax.swing.JButton();
+        btnResetRoomType = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        tfRoomTypeID = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         btnSuaKhachThue1 = new javax.swing.JButton();
@@ -69,43 +90,47 @@ public class QLGiaDichVuGUI extends javax.swing.JInternalFrame {
         jLabel1.setForeground(new java.awt.Color(255, 0, 0));
         jLabel1.setText("QUẢN LÍ GIÁ DỊCH VỤ");
 
+        jPanel2.setBackground(new java.awt.Color(138, 213, 55));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Giá phòng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14))); // NOI18N
 
         jLabel2.setText("Loại phòng: ");
 
-        cbLoaiPhong.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Thường", "Vip" }));
+        cbRoomType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Thường", "Vip" }));
 
         jLabel3.setText("Số người ở: ");
 
-        cbSoNguoi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", " " }));
+        cbMaxNumber.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", " " }));
 
         jLabel4.setText("Giá phòng: ");
 
+        jPanel4.setBackground(new java.awt.Color(254, 254, 254));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Danh sách giá phòng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14))); // NOI18N
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbRoomType.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "STT", "Loại phòng", "Số người ", "Giá phờng"
+                "STT", "Mã loại phòng", "Loại phòng", "Số người ", "Giá phòng"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setPreferredWidth(40);
-            jTable1.getColumnModel().getColumn(0).setMaxWidth(40);
+        tbRoomType.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbRoomTypeMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tbRoomType);
+        if (tbRoomType.getColumnModel().getColumnCount() > 0) {
+            tbRoomType.getColumnModel().getColumn(0).setPreferredWidth(40);
+            tbRoomType.getColumnModel().getColumn(0).setMaxWidth(40);
         }
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -119,37 +144,68 @@ public class QLGiaDichVuGUI extends javax.swing.JInternalFrame {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
         );
 
+        jPanel6.setBackground(new java.awt.Color(254, 254, 254));
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Chức năng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14))); // NOI18N
 
-        btnThemKhachThue2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icon_themphong.png"))); // NOI18N
-        btnThemKhachThue2.setText("Thêm");
-        btnThemKhachThue2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnThemKhachThue2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnAddRoomType.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icon_themphong.png"))); // NOI18N
+        btnAddRoomType.setText("Thêm");
+        btnAddRoomType.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAddRoomType.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnAddRoomType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddRoomTypeActionPerformed(evt);
+            }
+        });
 
-        btnXoaKhachThue2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icon_xoa.png"))); // NOI18N
-        btnXoaKhachThue2.setText("Xóa");
-        btnXoaKhachThue2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnXoaKhachThue2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnDeleteRoomType.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icon_xoa.png"))); // NOI18N
+        btnDeleteRoomType.setText("Xóa");
+        btnDeleteRoomType.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnDeleteRoomType.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnDeleteRoomType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteRoomTypeActionPerformed(evt);
+            }
+        });
 
-        btnSuaKhachThue2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icon_sua.png"))); // NOI18N
-        btnSuaKhachThue2.setText("Sửa");
-        btnSuaKhachThue2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnSuaKhachThue2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnEditRoomType.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icon_sua.png"))); // NOI18N
+        btnEditRoomType.setText("Sửa");
+        btnEditRoomType.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnEditRoomType.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnEditRoomType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditRoomTypeActionPerformed(evt);
+            }
+        });
 
-        btnLuuKhachThue2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icon_save.png"))); // NOI18N
-        btnLuuKhachThue2.setText("Lưu");
-        btnLuuKhachThue2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnLuuKhachThue2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnSaveRoomType.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icon_save.png"))); // NOI18N
+        btnSaveRoomType.setText("Lưu");
+        btnSaveRoomType.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnSaveRoomType.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnSaveRoomType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveRoomTypeActionPerformed(evt);
+            }
+        });
 
-        btnHuyKhachThue2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icon_huy.png"))); // NOI18N
-        btnHuyKhachThue2.setText("Hủy");
-        btnHuyKhachThue2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnHuyKhachThue2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnCancleRoomType.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icon_huy.png"))); // NOI18N
+        btnCancleRoomType.setText("Hủy");
+        btnCancleRoomType.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCancleRoomType.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnCancleRoomType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancleRoomTypeActionPerformed(evt);
+            }
+        });
 
-        btnResetKhachThue2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icon_reset.png"))); // NOI18N
-        btnResetKhachThue2.setText("Reset");
-        btnResetKhachThue2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnResetKhachThue2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnResetRoomType.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icon_reset.png"))); // NOI18N
+        btnResetRoomType.setText("Reset");
+        btnResetRoomType.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnResetRoomType.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnResetRoomType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetRoomTypeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -157,31 +213,33 @@ public class QLGiaDichVuGUI extends javax.swing.JInternalFrame {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnThemKhachThue2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAddRoomType, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnXoaKhachThue2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnDeleteRoomType, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSuaKhachThue2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnEditRoomType, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnLuuKhachThue2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSaveRoomType, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnHuyKhachThue2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCancleRoomType, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnResetKhachThue2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnResetRoomType, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnThemKhachThue2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnXoaKhachThue2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSuaKhachThue2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLuuKhachThue2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnHuyKhachThue2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnResetKhachThue2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAddRoomType, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDeleteRoomType, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditRoomType, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSaveRoomType, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancleRoomType, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnResetRoomType, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jLabel9.setText("Mã loại phòng:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -190,43 +248,54 @@ public class QLGiaDichVuGUI extends javax.swing.JInternalFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbLoaiPhong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbSoNguoi, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfGiaPhong))
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfRoomTypeID, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbRoomType, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(34, 34, 34)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfRoomPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbMaxNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(6, 12, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(tfRoomTypeID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(cbMaxNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(cbLoaiPhong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(cbSoNguoi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbRoomType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
-                    .addComponent(tfGiaPhong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(tfRoomPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
+        jPanel3.setBackground(new java.awt.Color(138, 213, 55));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dịch vụ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14))); // NOI18N
 
+        jPanel5.setBackground(new java.awt.Color(254, 254, 254));
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Chức năng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14))); // NOI18N
 
+        btnSuaKhachThue1.setBackground(new java.awt.Color(254, 254, 254));
         btnSuaKhachThue1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icon_sua.png"))); // NOI18N
         btnSuaKhachThue1.setText("Sửa");
         btnSuaKhachThue1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -340,7 +409,8 @@ public class QLGiaDichVuGUI extends javax.swing.JInternalFrame {
                     .addComponent(jLabel8)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -348,13 +418,13 @@ public class QLGiaDichVuGUI extends javax.swing.JInternalFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(102, 102, 102)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(100, 100, 100)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(80, 80, 80))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(528, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(533, 533, 533))
         );
@@ -364,10 +434,10 @@ public class QLGiaDichVuGUI extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(231, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
@@ -375,25 +445,185 @@ public class QLGiaDichVuGUI extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //show table
+    public void showTableRoomType(ArrayList<RoomTypeDTO> listRoomTypeDTO) {
+        int i = 1;
+        for (RoomTypeDTO roomType : listRoomTypeDTO) {
+            _tableModel.addRow(new Object[]{
+                i++, roomType.getRoomTypeID(), roomType.getRoomType(), roomType.getMaxNumberGuest(), roomType.getRoomPrice()
+            });
+        }
+    }
+
+    public void showTableRoomTypeUpdate() {
+        int i = tbRoomType.getRowCount() + 1;
+        _roomTypeDTO = _listRoomType.get(_listRoomType.size() - 1);
+        _tableModel.addRow(new Object[]{
+            i, _roomTypeDTO.getRoomTypeID(), _roomTypeDTO.getRoomType(), _roomTypeDTO.getMaxNumberGuest(), _roomTypeDTO.getRoomPrice()
+        });
+    }
+
     private void tfGiaDienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfGiaDienActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfGiaDienActionPerformed
 
+    //su kien bam vao nut them
+    private void btnAddRoomTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddRoomTypeActionPerformed
+        //kiem tra thong tin nhap vao
+        //chưa làm
+        _roomTypeDTO.setRoomTypeID(tfRoomTypeID.getText());
+        _roomTypeDTO.setRoomType(cbRoomType.getSelectedItem().toString());
+        _roomTypeDTO.setMaxNumberGuest(Integer.parseInt(cbMaxNumber.getSelectedItem().toString()));
+        _roomTypeDTO.setRoomPrice(Integer.parseInt(tfRoomPrice.getText()));
 
+        if (_roomTypeBUS.insertRoomType(_roomTypeDTO)) {
+            JOptionPane.showMessageDialog(this, "Thêm vào database thành công", "Thêm loại phòng", JOptionPane.INFORMATION_MESSAGE);
+            _listRoomType.add(_roomTypeDTO);
+            showTableRoomTypeUpdate();
+        } else {
+            JOptionPane.showMessageDialog(this, "Thêm vào database thất bại", "Thêm loại phòng", JOptionPane.ERROR_MESSAGE);
+        }
+        reset();
+    }//GEN-LAST:event_btnAddRoomTypeActionPerformed
+
+    public int getIndexListRoomType(String guestId) {
+        int len = _listRoomType.size();
+        for (int i = 0; i < len; ++i) {
+            if (_listRoomType.get(i).getRoomTypeID().equals(guestId)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    private void btnDeleteRoomTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteRoomTypeActionPerformed
+        int[] vt = tbRoomType.getSelectedRows();
+        String roomTypeID = "";
+        int index = -1;
+        if (vt.length > 0) {
+            for (int i = vt.length - 1; i >= 0; --i) {
+                roomTypeID = tbRoomType.getValueAt(vt[i], 1).toString();
+                index = getIndexListRoomType(roomTypeID);
+                if (!_roomTypeBUS.deleteRoomType(roomTypeID)) {
+                    JOptionPane.showMessageDialog(this, "Xóa dữ liệu trong database thất bại", "Xóa loại phòng", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                _listRoomType.remove(index);
+            }
+            JOptionPane.showMessageDialog(this, "Xóa dữ liệu trong database thành công", "Xóa loại phòng", JOptionPane.INFORMATION_MESSAGE);
+            _tableModel.setRowCount(0);
+            showTableRoomType(_listRoomType);
+        } else {
+            JOptionPane.showMessageDialog(this, "Hãy chọn loại phòng muốn xóa", "Xóa loại phòng", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnDeleteRoomTypeActionPerformed
+
+    private void btnEditRoomTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditRoomTypeActionPerformed
+        setEnable(true);
+        tfRoomTypeID.setEnabled(false);
+        btnSaveRoomType.setEnabled(true);
+        btnCancleRoomType.setEnabled(true);
+        btnDeleteRoomType.setEnabled(false);
+    }//GEN-LAST:event_btnEditRoomTypeActionPerformed
+
+    //su kien nhap nut luu
+    private void btnSaveRoomTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveRoomTypeActionPerformed
+        int vt = tbRoomType.getSelectedRow();
+        if (vt != -1) {
+            _roomTypeDTO = _listRoomType.get(getIndexListRoomType(tbRoomType.getValueAt(vt, 1).toString()));
+            _roomTypeDTO.setRoomType(cbRoomType.getSelectedItem().toString());
+            _roomTypeDTO.setMaxNumberGuest(Integer.parseInt(cbMaxNumber.getSelectedItem().toString()));
+            _roomTypeDTO.setRoomPrice(Integer.parseInt(tfRoomPrice.getText()));
+
+            if (_roomTypeBUS.updateRoomType(_roomTypeDTO)) {
+                JOptionPane.showMessageDialog(this, "Update vào database thành công", "Update loại phòng", JOptionPane.INFORMATION_MESSAGE);
+                //set lai gia tri moi
+                tbRoomType.setValueAt(_roomTypeDTO.getRoomType(), vt, 2);
+                tbRoomType.setValueAt(_roomTypeDTO.getMaxNumberGuest(), vt, 3);
+                tbRoomType.setValueAt(_roomTypeDTO.getRoomPrice(), vt, 4);
+            } else {
+                JOptionPane.showMessageDialog(this, "Update vào database thất bại", "Update loại phòng", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
+        reset();
+    }//GEN-LAST:event_btnSaveRoomTypeActionPerformed
+
+    public void reset() {
+        setEnable(true);
+        btnAddRoomType.setEnabled(true);
+        btnSaveRoomType.setEnabled(false);
+        btnCancleRoomType.setEnabled(false);
+        btnDeleteRoomType.setEnabled(true);
+        tfRoomTypeID.setText("");
+        cbRoomType.setSelectedIndex(0);
+        cbMaxNumber.setSelectedIndex(0);
+        tfRoomPrice.setText("");
+        tbRoomType.clearSelection();
+    }
+
+    //su kien bam nut reset
+    private void btnResetRoomTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetRoomTypeActionPerformed
+        reset();
+    }//GEN-LAST:event_btnResetRoomTypeActionPerformed
+
+    //setEnable
+    public void setEnable(boolean bool) {
+        tfRoomTypeID.setEnabled(bool);
+        cbRoomType.setEnabled(bool);
+        cbMaxNumber.setEnabled(bool);
+        tfRoomPrice.setEnabled(bool);
+    }
+
+    //su kien bam click vao dong
+    private void tbRoomTypeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbRoomTypeMouseClicked
+        int vt = tbRoomType.getSelectedRow();
+        if (vt != -1) {
+            tfRoomTypeID.setText(tbRoomType.getValueAt(vt, 1).toString());
+            cbRoomType.getModel().setSelectedItem(tbRoomType.getValueAt(vt, 2));
+            cbMaxNumber.getModel().setSelectedItem(tbRoomType.getValueAt(vt, 3));
+            tfRoomPrice.setText(tbRoomType.getValueAt(vt, 4).toString());
+        }
+        btnAddRoomType.setEnabled(false);
+        setEnable(false);
+    }//GEN-LAST:event_tbRoomTypeMouseClicked
+
+    private void btnCancleRoomTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancleRoomTypeActionPerformed
+        reset();
+    }//GEN-LAST:event_btnCancleRoomTypeActionPerformed
+
+    public static RoomTypeDTO getRoomType(String roomTypeID){
+        for(RoomTypeDTO room : _listRoomType){
+            if(room.getRoomTypeID().equals(roomTypeID)){
+                return room;
+            }
+        }
+        return null;
+    }
+    
+    public static String[] getRoomTypeID(String roomType){
+        String[] result = new String[_listRoomType.size() + 1];
+        int i = 0;
+        for(RoomTypeDTO room : _listRoomType){
+            if(room.getRoomType().equals(roomType)){
+                result[i++] = room.getRoomTypeID();
+            }
+        }
+        return result;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddRoomType;
+    private javax.swing.JButton btnCancleRoomType;
+    private javax.swing.JButton btnDeleteRoomType;
+    private javax.swing.JButton btnEditRoomType;
     private javax.swing.JButton btnHuyKhachThue1;
-    private javax.swing.JButton btnHuyKhachThue2;
     private javax.swing.JButton btnLuuKhachThue1;
-    private javax.swing.JButton btnLuuKhachThue2;
     private javax.swing.JButton btnResetKhachThue1;
-    private javax.swing.JButton btnResetKhachThue2;
+    private javax.swing.JButton btnResetRoomType;
+    private javax.swing.JButton btnSaveRoomType;
     private javax.swing.JButton btnSuaKhachThue1;
-    private javax.swing.JButton btnSuaKhachThue2;
-    private javax.swing.JButton btnThemKhachThue2;
     private javax.swing.JButton btnThoat1;
-    private javax.swing.JButton btnXoaKhachThue2;
-    private javax.swing.JComboBox<String> cbLoaiPhong;
-    private javax.swing.JComboBox<String> cbSoNguoi;
+    private javax.swing.JComboBox<String> cbMaxNumber;
+    private javax.swing.JComboBox<String> cbRoomType;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -402,6 +632,7 @@ public class QLGiaDichVuGUI extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -409,11 +640,12 @@ public class QLGiaDichVuGUI extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JTable tbRoomType;
     private javax.swing.JTextField tfGiaDien;
-    private javax.swing.JTextField tfGiaPhong;
+    private javax.swing.JTextField tfRoomPrice;
+    private javax.swing.JTextField tfRoomTypeID;
     // End of variables declaration//GEN-END:variables
 }

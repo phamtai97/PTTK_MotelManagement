@@ -330,7 +330,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,54,0,0,5,27"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,66,0,0,5,74"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
@@ -358,10 +358,10 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
+                      <Group type="102" attributes="0">
                           <Component id="jPanel6" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jPanel4" min="-2" pref="600" max="-2" attributes="0"/>
+                          <Component id="jPanel4" min="-2" pref="541" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
@@ -369,7 +369,7 @@
                               <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                                  <Component id="jPanel3" pref="898" max="32767" attributes="0"/>
+                                  <Component id="jPanel3" pref="906" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -394,16 +394,15 @@
                       <Component id="jPanel5" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jPanel7" min="-2" pref="85" max="-2" attributes="0"/>
-                      <Component id="jPanel3" min="-2" pref="85" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jPanel7" max="32767" attributes="0"/>
+                      <Component id="jPanel3" pref="94" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jPanel6" pref="293" max="32767" attributes="0"/>
-                      <Component id="jPanel4" pref="0" max="32767" attributes="0"/>
+                      <Component id="jPanel4" pref="288" max="32767" attributes="0"/>
+                      <Component id="jPanel6" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -422,6 +421,9 @@
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel3">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="37" green="d5" red="8a" type="rgb"/>
+            </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                 <TitledBorder title="Th&#xf4;ng tin ph&#xf2;ng tr&#x1ecd;">
@@ -445,28 +447,35 @@
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="cbTinhTrang" min="-2" pref="111" max="-2" attributes="0"/>
-                          <Component id="tfMaPhongTro" max="32767" attributes="0"/>
+                          <Component id="cbRoomState" min="-2" pref="111" max="-2" attributes="0"/>
+                          <Component id="tfRoomID" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="cbRoomType" max="32767" attributes="0"/>
+                          <Component id="cbQuantityGuest" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="cmLoaiPhong" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="189" max="-2" attributes="0"/>
-                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="cbSoLuong" min="-2" pref="52" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="tfGiaPhong" min="-2" pref="215" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="212" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="cbRoomTypeID" min="-2" pref="127" max="-2" attributes="0"/>
+                          <Component id="tfRoomPrice" min="-2" pref="206" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -476,18 +485,20 @@
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tfMaPhongTro" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfRoomID" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="cmLoaiPhong" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="cbSoLuong" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cbRoomType" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cbRoomTypeID" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="cbTinhTrang" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cbRoomState" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tfGiaPhong" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfRoomPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cbQuantityGuest" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                   </Group>
@@ -500,14 +511,14 @@
                 <Property name="text" type="java.lang.String" value="M&#xe3; ph&#xf2;ng tr&#x1ecd;:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="tfMaPhongTro">
+            <Component class="javax.swing.JTextField" name="tfRoomID">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Lo&#x1ea1;i ph&#xf2;ng:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="cmLoaiPhong">
+            <Component class="javax.swing.JComboBox" name="cbRoomType">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="2">
@@ -516,6 +527,9 @@
                   </StringArray>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbRoomTypeActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
@@ -535,7 +549,7 @@
                 <Property name="text" type="java.lang.String" value="S&#x1ed1; ng&#x1b0;&#x1edd;i &#x1edf;:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="cbTinhTrang">
+            <Component class="javax.swing.JComboBox" name="cbRoomState">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">
@@ -549,29 +563,54 @@
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JComboBox" name="cbSoLuong">
+            <Component class="javax.swing.JComboBox" name="cbQuantityGuest">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="6">
-                    <StringItem index="0" value="1"/>
-                    <StringItem index="1" value="2"/>
-                    <StringItem index="2" value="3"/>
-                    <StringItem index="3" value="4"/>
-                    <StringItem index="4" value="5"/>
-                    <StringItem index="5" value="6"/>
+                  <StringArray count="7">
+                    <StringItem index="0" value="0"/>
+                    <StringItem index="1" value="1"/>
+                    <StringItem index="2" value="2"/>
+                    <StringItem index="3" value="3"/>
+                    <StringItem index="4" value="4"/>
+                    <StringItem index="5" value="5"/>
+                    <StringItem index="6" value="6"/>
                   </StringArray>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbQuantityGuestActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JTextField" name="tfGiaPhong">
+            <Component class="javax.swing.JTextField" name="tfRoomPrice">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel18">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="M&#xe3; lo&#x1ea1;i ph&#xf2;ng:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="cbRoomTypeID">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="0"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbRoomTypeIDActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel7">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="37" green="d5" red="8a" type="rgb"/>
+            </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                 <TitledBorder title="T&#xe0;i s&#x1ea3;n">
@@ -585,84 +624,46 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="ckbMayQuat" min="-2" max="-2" attributes="0"/>
-                          <Component id="ckbBongDen" alignment="0" min="-2" pref="97" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jCheckBox1" min="-2" pref="92" max="-2" attributes="0"/>
-                          <Component id="ckbTuQuanAo" min="-2" pref="70" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="ckbBepGa" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox2" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jScrollPane3" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="ckbMayQuat" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="ckbBongDen" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ckbTuQuanAo" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ckbBepGa" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jScrollPane3" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JCheckBox" name="ckbMayQuat">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="M&#xe1;y qu&#x1ea1;t"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JCheckBox" name="ckbBongDen">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="&#x110;&#xe8;n &#x111;i&#x1ec7;n"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JCheckBox" name="ckbBepGa">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="B&#x1ebf;p ga"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JCheckBox" name="ckbTuQuanAo">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="T&#x1ee7; &#x111;&#x1ed3;"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ckbTuQuanAoActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JCheckBox" name="jCheckBox1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="M&#xe1;y l&#x1ea1;nh"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JCheckBox" name="jCheckBox2">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="B&#xe0;n, gh&#x1ebf;"/>
-              </Properties>
-            </Component>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JList" name="listDevice">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+                      <StringArray count="0"/>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+              </SubComponents>
+            </Container>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel5">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="37" green="d5" red="8a" type="rgb"/>
+            </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                 <TitledBorder title="Ch&#x1ee9;c n&#x103;ng">
@@ -677,17 +678,17 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnThemKhachThue1" min="-2" pref="83" max="-2" attributes="0"/>
+                      <Component id="btnInsertRoom" min="-2" pref="83" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnXoaKhachThue1" min="-2" pref="83" max="-2" attributes="0"/>
+                      <Component id="btnDeleteRoom" min="-2" pref="83" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnSuaKhachThue1" min="-2" pref="83" max="-2" attributes="0"/>
+                      <Component id="btnEditRoom" min="-2" pref="83" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnLuuKhachThue1" min="-2" pref="83" max="-2" attributes="0"/>
+                      <Component id="btnSaveRoom" min="-2" pref="83" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnHuyKhachThue1" min="-2" pref="83" max="-2" attributes="0"/>
+                      <Component id="btnCancelRoom" min="-2" pref="83" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnResetKhachThue1" min="-2" pref="83" max="-2" attributes="0"/>
+                      <Component id="btnResetRoom" min="-2" pref="83" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnThoat1" min="-2" pref="83" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="194" max="-2" attributes="0"/>
@@ -698,12 +699,12 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnThemKhachThue1" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
-                          <Component id="btnXoaKhachThue1" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
-                          <Component id="btnSuaKhachThue1" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
-                          <Component id="btnLuuKhachThue1" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
-                          <Component id="btnHuyKhachThue1" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
-                          <Component id="btnResetKhachThue1" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
+                          <Component id="btnInsertRoom" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
+                          <Component id="btnDeleteRoom" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
+                          <Component id="btnEditRoom" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
+                          <Component id="btnSaveRoom" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
+                          <Component id="btnCancelRoom" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
+                          <Component id="btnResetRoom" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
                           <Component id="btnThoat1" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
@@ -712,17 +713,20 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="btnThemKhachThue1">
+            <Component class="javax.swing.JButton" name="btnInsertRoom">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/image/icon_themkhach.png"/>
+                  <Image iconType="3" name="/image/icon_themphong.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Th&#xea;m"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInsertRoomActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnXoaKhachThue1">
+            <Component class="javax.swing.JButton" name="btnDeleteRoom">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/image/icon_xoa.png"/>
@@ -732,7 +736,7 @@
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btnSuaKhachThue1">
+            <Component class="javax.swing.JButton" name="btnEditRoom">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/image/icon_sua.png"/>
@@ -741,8 +745,11 @@
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditRoomActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnLuuKhachThue1">
+            <Component class="javax.swing.JButton" name="btnSaveRoom">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/image/icon_save.png"/>
@@ -751,8 +758,11 @@
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSaveRoomActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnHuyKhachThue1">
+            <Component class="javax.swing.JButton" name="btnCancelRoom">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/image/icon_huy.png"/>
@@ -761,8 +771,11 @@
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelRoomActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnResetKhachThue1">
+            <Component class="javax.swing.JButton" name="btnResetRoom">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/image/icon_reset.png"/>
@@ -771,6 +784,9 @@
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnResetRoomActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnThoat1">
               <Properties>
@@ -786,6 +802,9 @@
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel10">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="37" green="d5" red="8a" type="rgb"/>
+            </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                 <TitledBorder title="T&#xec;m ki&#x1ebf;m">
@@ -800,16 +819,16 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="cbLoaiTimKiemKhachTro1" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace pref="53" max="32767" attributes="0"/>
+                              <Component id="cbFindRoom" min="-2" pref="145" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="tfTimKiemKhachTro1" min="-2" pref="258" max="-2" attributes="0"/>
+                          <Component id="tfFindInput" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="btnTimKiemKhachTro1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btnFindRoom" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -820,12 +839,12 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="cbLoaiTimKiemKhachTro1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cbFindRoom" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="tfTimKiemKhachTro1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnTimKiemKhachTro1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfFindInput" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnFindRoom" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -838,7 +857,7 @@
                 <Property name="text" type="java.lang.String" value="T&#xec;m ki&#x1ebf;m theo:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="cbLoaiTimKiemKhachTro1">
+            <Component class="javax.swing.JComboBox" name="cbFindRoom">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
@@ -850,23 +869,29 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbLoaiTimKiemKhachTro1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbFindRoomActionPerformed"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JTextField" name="tfTimKiemKhachTro1">
+            <Component class="javax.swing.JTextField" name="tfFindInput">
             </Component>
-            <Component class="javax.swing.JButton" name="btnTimKiemKhachTro1">
+            <Component class="javax.swing.JButton" name="btnFindRoom">
               <Properties>
                 <Property name="text" type="java.lang.String" value="T&#xec;m ki&#x1ebf;m"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFindRoomActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel6">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="37" green="d5" red="8a" type="rgb"/>
+            </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                 <TitledBorder title="Danh s&#xe1;ch ph&#xf2;ng tr&#x1ecd;">
@@ -887,12 +912,13 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="tbPhongTro">
+                <Component class="javax.swing.JTable" name="tbRoom">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="6" rowCount="4">
+                      <Table columnCount="7" rowCount="0">
                         <Column editable="false" title="STT" type="java.lang.Object"/>
                         <Column editable="false" title="M&#xe3;  ph&#xf2;ng tr&#x1ecd;" type="java.lang.Object"/>
+                        <Column editable="false" title="M&#xe3; lo&#x1ea1;i ph&#xf2;ng" type="java.lang.Object"/>
                         <Column editable="false" title="Lo&#x1ea1;i ph&#xf2;ng" type="java.lang.Object"/>
                         <Column editable="false" title="T&#xec;nh tr&#x1ea1;ng ph&#xf2;ng" type="java.lang.Object"/>
                         <Column editable="false" title="S&#x1ed1; ng&#x1b0;&#x1edd;i &#x1edf;" type="java.lang.Object"/>
@@ -931,12 +957,23 @@
                           <Editor/>
                           <Renderer/>
                         </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
                       </TableColumnModel>
                     </Property>
                     <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                       <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tbRoomMouseClicked"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -944,6 +981,9 @@
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel4">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="37" green="d5" red="8a" type="rgb"/>
+            </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                 <TitledBorder title="Danh s&#xe1;ch kh&#xe1;ch tr&#x1ecd;">

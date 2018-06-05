@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  */
 public class DataProvider {
     private Connection conn;
-    private String url, userName, password, port;
+    private String url, userName, password;
     
     public DataProvider(){
         this.conn = null;
@@ -36,7 +36,7 @@ public class DataProvider {
             String databaseName = properties.getProperty("databasename");
             userName = properties.getProperty("username");
             password = properties.getProperty("password");
-            port = properties.getProperty("port");
+            
             url = url + hostName + ":3306/" + databaseName;
         } catch (Exception e) {
             e.printStackTrace();

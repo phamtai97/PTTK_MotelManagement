@@ -28,18 +28,18 @@ public class QLKhachThueTroGUI extends javax.swing.JInternalFrame {
      * Creates new form QLNguoiThueTroGUI
      */
     private GuestDTO _guestDTO;
-    private GuestBUS _guestBUS;
+    public static GuestBUS _guestBUS;
     private static ArrayList<GuestDTO> _listGuest;
     private DefaultTableModel _tableModel;
 
     public QLKhachThueTroGUI() {
         initComponents();
         this.setName("Khách trọ");
-        tbKhachTro.setFillsViewportHeight(true);
+        tbGuest.setFillsViewportHeight(true);
         _guestDTO = new GuestDTO();
         _guestBUS = new GuestBUS();
         _listGuest = _guestBUS.getAllGuest();
-        _tableModel = (DefaultTableModel) tbKhachTro.getModel();
+        _tableModel = (DefaultTableModel) tbGuest.getModel();
         showTabelGuest(_listGuest);
         btnSaveGuest.setEnabled(false);
         btnCancelGuest.setEnabled(false);
@@ -62,7 +62,7 @@ public class QLKhachThueTroGUI extends javax.swing.JInternalFrame {
         tfInputFindGuest = new javax.swing.JTextField();
         btnFindGuest = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
-        btnAddGuest = new javax.swing.JButton();
+        btnInsertGuest = new javax.swing.JButton();
         btnDeleteGuest = new javax.swing.JButton();
         btnEditGuest = new javax.swing.JButton();
         btnSaveGuest = new javax.swing.JButton();
@@ -71,7 +71,7 @@ public class QLKhachThueTroGUI extends javax.swing.JInternalFrame {
         btnThoat = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbKhachTro = new javax.swing.JTable();
+        tbGuest = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         tfGuestID = new javax.swing.JTextField();
@@ -147,13 +147,13 @@ public class QLKhachThueTroGUI extends javax.swing.JInternalFrame {
         jPanel4.setBackground(new java.awt.Color(138, 213, 55));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Chức năng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14))); // NOI18N
 
-        btnAddGuest.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icon_themphong.png"))); // NOI18N
-        btnAddGuest.setText("Thêm");
-        btnAddGuest.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnAddGuest.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnAddGuest.addActionListener(new java.awt.event.ActionListener() {
+        btnInsertGuest.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icon_themkhach.png"))); // NOI18N
+        btnInsertGuest.setText("Thêm");
+        btnInsertGuest.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnInsertGuest.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnInsertGuest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddGuestActionPerformed(evt);
+                btnInsertGuestActionPerformed(evt);
             }
         });
 
@@ -218,7 +218,7 @@ public class QLKhachThueTroGUI extends javax.swing.JInternalFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnAddGuest, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnInsertGuest, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(btnDeleteGuest, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
@@ -237,7 +237,7 @@ public class QLKhachThueTroGUI extends javax.swing.JInternalFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAddGuest, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnInsertGuest, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDeleteGuest, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEditGuest, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSaveGuest, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -250,7 +250,7 @@ public class QLKhachThueTroGUI extends javax.swing.JInternalFrame {
         jPanel5.setBackground(new java.awt.Color(138, 213, 55));
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Danh sách khách trọ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14))); // NOI18N
 
-        tbKhachTro.setModel(new javax.swing.table.DefaultTableModel(
+        tbGuest.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -266,31 +266,31 @@ public class QLKhachThueTroGUI extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        tbKhachTro.addMouseListener(new java.awt.event.MouseAdapter() {
+        tbGuest.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbKhachTroMouseClicked(evt);
+                tbGuestMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tbKhachTro);
-        if (tbKhachTro.getColumnModel().getColumnCount() > 0) {
-            tbKhachTro.getColumnModel().getColumn(0).setPreferredWidth(40);
-            tbKhachTro.getColumnModel().getColumn(0).setMaxWidth(40);
-            tbKhachTro.getColumnModel().getColumn(1).setPreferredWidth(100);
-            tbKhachTro.getColumnModel().getColumn(1).setMaxWidth(100);
-            tbKhachTro.getColumnModel().getColumn(3).setPreferredWidth(50);
-            tbKhachTro.getColumnModel().getColumn(3).setMaxWidth(50);
-            tbKhachTro.getColumnModel().getColumn(4).setPreferredWidth(100);
-            tbKhachTro.getColumnModel().getColumn(4).setMaxWidth(100);
-            tbKhachTro.getColumnModel().getColumn(5).setPreferredWidth(100);
-            tbKhachTro.getColumnModel().getColumn(5).setMaxWidth(100);
-            tbKhachTro.getColumnModel().getColumn(6).setPreferredWidth(100);
-            tbKhachTro.getColumnModel().getColumn(6).setMaxWidth(100);
-            tbKhachTro.getColumnModel().getColumn(8).setPreferredWidth(100);
-            tbKhachTro.getColumnModel().getColumn(8).setMaxWidth(100);
-            tbKhachTro.getColumnModel().getColumn(9).setPreferredWidth(100);
-            tbKhachTro.getColumnModel().getColumn(9).setMaxWidth(100);
-            tbKhachTro.getColumnModel().getColumn(10).setPreferredWidth(100);
-            tbKhachTro.getColumnModel().getColumn(10).setMaxWidth(100);
+        jScrollPane1.setViewportView(tbGuest);
+        if (tbGuest.getColumnModel().getColumnCount() > 0) {
+            tbGuest.getColumnModel().getColumn(0).setPreferredWidth(40);
+            tbGuest.getColumnModel().getColumn(0).setMaxWidth(40);
+            tbGuest.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tbGuest.getColumnModel().getColumn(1).setMaxWidth(100);
+            tbGuest.getColumnModel().getColumn(3).setPreferredWidth(50);
+            tbGuest.getColumnModel().getColumn(3).setMaxWidth(50);
+            tbGuest.getColumnModel().getColumn(4).setPreferredWidth(100);
+            tbGuest.getColumnModel().getColumn(4).setMaxWidth(100);
+            tbGuest.getColumnModel().getColumn(5).setPreferredWidth(100);
+            tbGuest.getColumnModel().getColumn(5).setMaxWidth(100);
+            tbGuest.getColumnModel().getColumn(6).setPreferredWidth(100);
+            tbGuest.getColumnModel().getColumn(6).setMaxWidth(100);
+            tbGuest.getColumnModel().getColumn(8).setPreferredWidth(100);
+            tbGuest.getColumnModel().getColumn(8).setMaxWidth(100);
+            tbGuest.getColumnModel().getColumn(9).setPreferredWidth(100);
+            tbGuest.getColumnModel().getColumn(9).setMaxWidth(100);
+            tbGuest.getColumnModel().getColumn(10).setPreferredWidth(100);
+            tbGuest.getColumnModel().getColumn(10).setMaxWidth(100);
         }
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -456,8 +456,30 @@ public class QLKhachThueTroGUI extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    static public void updateStateGuestGUI(String guestID) {
+        int totalRow = tbGuest.getRowCount();
+        for (GuestDTO guest : _listGuest) {
+            if (guest.getGuestID().equals(guestID)) {
+                guest.setStateGuest(1);
+                break;
+            }
+        }
+
+        for (int i = 0; i < totalRow; ++i) {
+            if (tbGuest.getValueAt(i, 1).equals(guestID)) {
+                tbGuest.setValueAt("Đã thuê", i, 10);
+                break;
+            }
+        }
+    }
+
+    //lay danh sach khach tro
+    static public ArrayList<GuestDTO> getListGuest() {
+        return _listGuest;
+    }
+
     // in trang thai
-    String getStatusGuest(int i) {
+    public String getStatusGuest(int i) {
         return i == 1 ? "Đã thuê" : "Chưa thuê";
     }
 
@@ -475,7 +497,7 @@ public class QLKhachThueTroGUI extends javax.swing.JInternalFrame {
 
     //load table update
     public void showTableGuestUpdate() {
-        int i = tbKhachTro.getRowCount() + 1;
+        int i = tbGuest.getRowCount() + 1;
         _guestDTO = _listGuest.get(_listGuest.size() - 1);
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         _tableModel.addRow(new Object[]{
@@ -493,7 +515,7 @@ public class QLKhachThueTroGUI extends javax.swing.JInternalFrame {
     }
 
     //sự kiện bấm nút thêm
-    private void btnAddGuestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddGuestActionPerformed
+    private void btnInsertGuestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertGuestActionPerformed
         if (!checkInfo()) {
             JOptionPane.showMessageDialog(this, "Hãy điền đủ thông tin", "Thêm khách trọ", JOptionPane.ERROR_MESSAGE);
             return;
@@ -516,15 +538,12 @@ public class QLKhachThueTroGUI extends javax.swing.JInternalFrame {
         } else {
             JOptionPane.showMessageDialog(this, "Thêm vào database thất bại", "Thêm khách trọ", JOptionPane.ERROR_MESSAGE);
         }
-
-        btnAddGuest.setEnabled(true);
-        btnSaveGuest.setEnabled(false);
-        btnCancelGuest.setEnabled(false);
         reset();
-    }//GEN-LAST:event_btnAddGuestActionPerformed
+        DangKiThuePhongGUI.showTableGuestDontHaveRoom(_listGuest);
+    }//GEN-LAST:event_btnInsertGuestActionPerformed
 
     //tim kiem khach tro trong listguest
-    public int searchIndexGuest(String guestId) {
+    public int getIndexListGuest(String guestId) {
         int len = _listGuest.size();
         for (int i = 0; i < len; ++i) {
             if (_listGuest.get(i).getGuestID().equals(guestId)) {
@@ -536,33 +555,38 @@ public class QLKhachThueTroGUI extends javax.swing.JInternalFrame {
 
     //su kien bam nut xoa
     private void btnDeleteGuestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteGuestActionPerformed
-        int[] vt = tbKhachTro.getSelectedRows();
+        int[] vt = tbGuest.getSelectedRows();
         int index = -1;
         if (vt.length > 0) {
             for (int i = vt.length - 1; i >= 0; --i) {
-                index = searchIndexGuest(tbKhachTro.getValueAt(vt[i], 1).toString());
+                index = getIndexListGuest(tbGuest.getValueAt(vt[i], 1).toString());
                 if (_listGuest.get(index).getStateGuest() == 0) {
                     if (!_guestBUS.deleteGuest(_listGuest.get(index).getGuestID(), _listGuest.get(index).getStateGuest())) {
                         JOptionPane.showMessageDialog(this, "Xóa dữ liệu trong database thất bại", "Xóa khách trọ", JOptionPane.ERROR_MESSAGE);
                         return;
                     }
                     _listGuest.remove(index);
+                } else {
+                    JOptionPane.showMessageDialog(this, "Khach trọ đang thuê, không được xóa", "Xóa khách trọ", JOptionPane.ERROR_MESSAGE);
+                    return;
                 }
             }
             JOptionPane.showMessageDialog(this, "Xóa dữ liệu trong database thành công", "Xóa khách trọ", JOptionPane.INFORMATION_MESSAGE);
             _tableModel.setRowCount(0);
             showTabelGuest(_listGuest);
+            DangKiThuePhongGUI.showTableGuestDontHaveRoom(_listGuest);
         } else {
             JOptionPane.showMessageDialog(this, "Hãy chọn khách trọ chưa đăng kí thuê trọ muốn xóa", "Xóa khách trọ", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnDeleteGuestActionPerformed
 
-    //su kien sua thong ti khach thue
+    //su kien bam nut sua thong tin khach thue
     private void btnEditGuestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditGuestActionPerformed
         setEnable(true);
         tfGuestID.setEnabled(false);
         btnSaveGuest.setEnabled(true);
         btnCancelGuest.setEnabled(true);
+        btnDeleteGuest.setEnabled(false);
     }//GEN-LAST:event_btnEditGuestActionPerformed
 
     //set Enable
@@ -579,38 +603,38 @@ public class QLKhachThueTroGUI extends javax.swing.JInternalFrame {
     }
 
     //su kien nhap vao dong trong bang
-    private void tbKhachTroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbKhachTroMouseClicked
-        int vt = tbKhachTro.getSelectedRow();
+    private void tbGuestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbGuestMouseClicked
+        int vt = tbGuest.getSelectedRow();
         SimpleDateFormat sp = new SimpleDateFormat("dd/MM/yyyy");
         if (vt != -1) {
-            tfGuestID.setText(tbKhachTro.getValueAt(vt, 1).toString());
-            tfGuestName.setText(tbKhachTro.getValueAt(vt, 2).toString());
-            cbSex.getModel().setSelectedItem(tbKhachTro.getValueAt(vt, 3).toString());
+            tfGuestID.setText(tbGuest.getValueAt(vt, 1).toString());
+            tfGuestName.setText(tbGuest.getValueAt(vt, 2).toString());
+            cbSex.getModel().setSelectedItem(tbGuest.getValueAt(vt, 3).toString());
             try {
-                spDob.getModel().setValue(sp.parse(tbKhachTro.getValueAt(vt, 4).toString()));
+                spDob.getModel().setValue(sp.parse(tbGuest.getValueAt(vt, 4).toString()));
             } catch (ParseException ex) {
                 Logger.getLogger(QLKhachThueTroGUI.class.getName()).log(Level.SEVERE, null, ex);
             }
-            cbCountrySide.getModel().setSelectedItem(tbKhachTro.getValueAt(vt, 5));
-            tfNumberID.setText(tbKhachTro.getValueAt(vt, 6).toString());
-            tfPermanentAddress.setText(tbKhachTro.getValueAt(vt, 7).toString());
-            tfJob.setText(tbKhachTro.getValueAt(vt, 8).toString());
-            tfPhoneNumber.setText(tbKhachTro.getValueAt(vt, 9).toString());
+            cbCountrySide.getModel().setSelectedItem(tbGuest.getValueAt(vt, 5));
+            tfNumberID.setText(tbGuest.getValueAt(vt, 6).toString());
+            tfPermanentAddress.setText(tbGuest.getValueAt(vt, 7).toString());
+            tfJob.setText(tbGuest.getValueAt(vt, 8).toString());
+            tfPhoneNumber.setText(tbGuest.getValueAt(vt, 9).toString());
 
         }
-
-        btnAddGuest.setEnabled(false);
+        btnInsertGuest.setEnabled(false);
         setEnable(false);
-    }//GEN-LAST:event_tbKhachTroMouseClicked
+    }//GEN-LAST:event_tbGuestMouseClicked
 
     //reset thong tin
     public void reset() {
         Date date = new Date();
         setEnable(true);
-        btnAddGuest.setEnabled(true);
+        btnInsertGuest.setEnabled(true);
         btnSaveGuest.setEnabled(false);
         btnCancelGuest.setEnabled(false);
-        tbKhachTro.clearSelection();
+        btnDeleteGuest.setEnabled(true);
+        tbGuest.clearSelection();
         tfGuestID.setText("");
         tfGuestName.setText("");
         cbSex.setSelectedIndex(0);
@@ -624,11 +648,11 @@ public class QLKhachThueTroGUI extends javax.swing.JInternalFrame {
         tfInputFindGuest.setText("");
     }
 
-    //su nhap nut luu
+    //su kien nhap nut luu
     private void btnSaveGuestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveGuestActionPerformed
-        int vt = tbKhachTro.getSelectedRow();
+        int vt = tbGuest.getSelectedRow();
         if (vt != -1) {
-            _guestDTO = _listGuest.get(searchIndexGuest(tbKhachTro.getValueAt(vt, 1).toString()));
+            _guestDTO = _listGuest.get(getIndexListGuest(tbGuest.getValueAt(vt, 1).toString()));
             _guestDTO.setGuestName(tfGuestName.getText());
             _guestDTO.setSex(cbSex.getSelectedItem().toString());
             _guestDTO.setDob((Date) spDob.getValue());
@@ -640,39 +664,31 @@ public class QLKhachThueTroGUI extends javax.swing.JInternalFrame {
 
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             if (_guestBUS.updateGuest(_guestDTO)) {
-                JOptionPane.showMessageDialog(this, "Update vào database thành công", "Update khach tro", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Update vào database thành công", "Update khach trọ", JOptionPane.INFORMATION_MESSAGE);
                 //set lai gia tri moi cho cot
-                tbKhachTro.setValueAt(_guestDTO.getGuestName(), vt, 2);
-                tbKhachTro.setValueAt(_guestDTO.getSex(), vt, 3);
-                tbKhachTro.setValueAt(sdf.format(_guestDTO.getDob()), vt, 4);
-                tbKhachTro.setValueAt(_guestDTO.getCountrySide(), vt, 5);
-                tbKhachTro.setValueAt(_guestDTO.getNumberID(), vt, 6);
-                tbKhachTro.setValueAt(_guestDTO.getPermanentAddress(), vt, 7);
-                tbKhachTro.setValueAt(_guestDTO.getJob(), vt, 8);
-                tbKhachTro.setValueAt(_guestDTO.getNumberID(), vt, 9);
+                tbGuest.setValueAt(_guestDTO.getGuestName(), vt, 2);
+                tbGuest.setValueAt(_guestDTO.getSex(), vt, 3);
+                tbGuest.setValueAt(sdf.format(_guestDTO.getDob()), vt, 4);
+                tbGuest.setValueAt(_guestDTO.getCountrySide(), vt, 5);
+                tbGuest.setValueAt(_guestDTO.getNumberID(), vt, 6);
+                tbGuest.setValueAt(_guestDTO.getPermanentAddress(), vt, 7);
+                tbGuest.setValueAt(_guestDTO.getJob(), vt, 8);
+                tbGuest.setValueAt(_guestDTO.getNumberID(), vt, 9);
             } else {
                 JOptionPane.showMessageDialog(this, "Update vào database thất bại", "Update khách trọ", JOptionPane.INFORMATION_MESSAGE);
             }
         }
-        btnAddGuest.setEnabled(true);
-        btnSaveGuest.setEnabled(false);
-        btnCancelGuest.setEnabled(false);
         reset();
+        DangKiThuePhongGUI.showTableGuestDontHaveRoom(_listGuest);
     }//GEN-LAST:event_btnSaveGuestActionPerformed
 
     //su kien bam nut huy
     private void btnCancelGuestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelGuestActionPerformed
-        btnAddGuest.setEnabled(true);
-        btnSaveGuest.setEnabled(false);
-        btnCancelGuest.setEnabled(false);
         reset();
     }//GEN-LAST:event_btnCancelGuestActionPerformed
 
     //su kien bam nut reset
     private void btnResetKhachThueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetKhachThueActionPerformed
-        btnAddGuest.setEnabled(true);
-        btnSaveGuest.setEnabled(true);
-        btnCancelGuest.setEnabled(true);
         reset();
     }//GEN-LAST:event_btnResetKhachThueActionPerformed
 
@@ -680,13 +696,13 @@ public class QLKhachThueTroGUI extends javax.swing.JInternalFrame {
     private void btnFindGuestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindGuestActionPerformed
         String type = cbTypeFind.getSelectedItem().toString();
         String input = tfInputFindGuest.getText();
-        if(input.length() == 0){
-            JOptionPane.showMessageDialog(this, "Hãy điền thông tin tìm kiếm", "Tiềm kiếm", JOptionPane.ERROR_MESSAGE);
+        if (input.length() == 0) {
+            JOptionPane.showMessageDialog(this, "Hãy điền thông tin tìm kiếm", "Tìm kiếm", JOptionPane.ERROR_MESSAGE);
             return;
         }
         JFrame tmp = new JFrame();
         FindGuestDialog findDialog = new FindGuestDialog(tmp, true);
-        switch(type){
+        switch (type) {
             case "Tên khách trọ":
                 type = "TenKhachTro";
                 break;
@@ -703,11 +719,11 @@ public class QLKhachThueTroGUI extends javax.swing.JInternalFrame {
                 type = "DienThoai";
                 break;
         }
-        
-        if(type.equals("TenKhachTro")){
+
+        if (type.equals("TenKhachTro")) {
             findDialog.showTable(_guestBUS.findGuestByName(input));
             findDialog.setVisible(true);
-        }else {
+        } else {
             findDialog.showTable(_guestBUS.findGuestBy(type, input));
             findDialog.setVisible(true);
         }
@@ -715,11 +731,11 @@ public class QLKhachThueTroGUI extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddGuest;
     private javax.swing.JButton btnCancelGuest;
     private javax.swing.JButton btnDeleteGuest;
     private javax.swing.JButton btnEditGuest;
     private javax.swing.JButton btnFindGuest;
+    private javax.swing.JButton btnInsertGuest;
     private javax.swing.JButton btnResetKhachThue;
     private javax.swing.JButton btnSaveGuest;
     private javax.swing.JButton btnThoat;
@@ -744,7 +760,7 @@ public class QLKhachThueTroGUI extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSpinner spDob;
-    private javax.swing.JTable tbKhachTro;
+    private static javax.swing.JTable tbGuest;
     private javax.swing.JTextField tfGuestID;
     private javax.swing.JTextField tfGuestName;
     private javax.swing.JTextField tfInputFindGuest;

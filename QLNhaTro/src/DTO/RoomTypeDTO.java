@@ -12,14 +12,18 @@ package DTO;
 public class RoomTypeDTO {
     private String _roomTypeID;
     private String _roomType;
-    private String _maxNumberGuest;
-    private String _roomPrice;
+    private int _maxNumberGuest;
+    private int _roomPrice;
 
-    public RoomTypeDTO(String _roomTypeID, String _roomType, String _maxNumberGuest, String _roomPrice) {
+    public RoomTypeDTO(String _roomTypeID, String _roomType, int _maxNumberGuest, int _roomPrice) {
         this._roomTypeID = _roomTypeID;
         this._roomType = _roomType;
         this._maxNumberGuest = _maxNumberGuest;
         this._roomPrice = _roomPrice;
+    }
+
+    public RoomTypeDTO() {
+       
     }
 
     public String getRoomTypeID() {
@@ -38,21 +42,19 @@ public class RoomTypeDTO {
         this._roomType = _roomType;
     }
 
-    public String getMaxNumberGuest() {
+    public int getMaxNumberGuest() {
         return _maxNumberGuest;
     }
 
-    public void setMaxNumberGuest(String _maxNumberGuest) {
+    public void setMaxNumberGuest(int _maxNumberGuest) {
         this._maxNumberGuest = _maxNumberGuest;
     }
 
-    public String getRoomPrice() {
+    public int getRoomPrice() {
         return _roomPrice;
     }
 
-    public void setRoomPrice(String _roomPrice) {
+    public void setRoomPrice(int _roomPrice) {
         this._roomPrice = _roomPrice;
     }
-    
-    
 }

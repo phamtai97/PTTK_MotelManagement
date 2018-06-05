@@ -22,7 +22,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,114,0,0,5,61"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,114,0,0,4,-4"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
@@ -43,18 +43,19 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace pref="313" max="32767" attributes="0"/>
+                  <EmptySpace pref="251" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="jPanel5" max="32767" attributes="0"/>
                               <Component id="jPanel3" alignment="1" max="32767" attributes="0"/>
                               <Component id="jPanel2" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="292" max="-2" attributes="0"/>
+                          <EmptySpace pref="266" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="250" pref="250" max="-2" attributes="0"/>
+                          <Component id="jLabel2" pref="215" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="549" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -69,9 +70,9 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jPanel3" min="-2" pref="115" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jPanel2" pref="255" max="32767" attributes="0"/>
+                  <Component id="jPanel2" pref="292" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -91,6 +92,9 @@
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel5">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="37" green="d5" red="8a" type="rgb"/>
+            </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                 <TitledBorder title="Ch&#x1ee9;c n&#x103;ng">
@@ -105,15 +109,15 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnThemKhachThue1" min="-2" pref="83" max="-2" attributes="0"/>
+                      <Component id="btnInsertDevice" min="-2" pref="83" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnXoaKhachThue1" min="-2" pref="83" max="-2" attributes="0"/>
+                      <Component id="btnDeleteDevice" min="-2" pref="83" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnSuaKhachThue1" min="-2" pref="83" max="-2" attributes="0"/>
+                      <Component id="btnEditDevice" min="-2" pref="83" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnLuuKhachThue1" min="-2" pref="83" max="-2" attributes="0"/>
+                      <Component id="btnSaveDevice" min="-2" pref="83" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnHuyKhachThue1" min="-2" pref="83" max="-2" attributes="0"/>
+                      <Component id="btnCancelDevice" min="-2" pref="83" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnResetKhachThue1" min="-2" pref="83" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -126,11 +130,11 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnThemKhachThue1" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
-                          <Component id="btnXoaKhachThue1" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
-                          <Component id="btnSuaKhachThue1" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
-                          <Component id="btnLuuKhachThue1" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
-                          <Component id="btnHuyKhachThue1" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
+                          <Component id="btnInsertDevice" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
+                          <Component id="btnDeleteDevice" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
+                          <Component id="btnEditDevice" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
+                          <Component id="btnSaveDevice" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
+                          <Component id="btnCancelDevice" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
                           <Component id="btnResetKhachThue1" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
                           <Component id="btnThoat1" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
                       </Group>
@@ -140,7 +144,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="btnThemKhachThue1">
+            <Component class="javax.swing.JButton" name="btnInsertDevice">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/image/icon_themphong.png"/>
@@ -149,8 +153,11 @@
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInsertDeviceActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnXoaKhachThue1">
+            <Component class="javax.swing.JButton" name="btnDeleteDevice">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/image/icon_xoa.png"/>
@@ -159,8 +166,11 @@
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteDeviceActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnSuaKhachThue1">
+            <Component class="javax.swing.JButton" name="btnEditDevice">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/image/icon_sua.png"/>
@@ -169,8 +179,11 @@
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditDeviceActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnLuuKhachThue1">
+            <Component class="javax.swing.JButton" name="btnSaveDevice">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/image/icon_save.png"/>
@@ -179,8 +192,11 @@
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSaveDeviceActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnHuyKhachThue1">
+            <Component class="javax.swing.JButton" name="btnCancelDevice">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/image/icon_huy.png"/>
@@ -189,6 +205,9 @@
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelDeviceActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnResetKhachThue1">
               <Properties>
@@ -199,6 +218,9 @@
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnResetKhachThue1ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnThoat1">
               <Properties>
@@ -214,6 +236,9 @@
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel2">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="37" green="d5" red="8a" type="rgb"/>
+            </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                 <TitledBorder title="Danh s&#xe1;ch thi&#x1ebf;t b&#x1ecb;">
@@ -225,7 +250,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
           <SubComponents>
-            <Container class="javax.swing.JScrollPane" name="tbQuanLiThietBi">
+            <Container class="javax.swing.JScrollPane" name="scp">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
                   <BorderConstraints direction="Center"/>
@@ -234,13 +259,13 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="tbDanhSachThietBi">
+                <Component class="javax.swing.JTable" name="tbDevice">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="5" rowCount="4">
+                      <Table columnCount="5" rowCount="0">
                         <Column editable="false" title="STT" type="java.lang.Object"/>
-                        <Column editable="false" title="M&#xe3; ph&#xf2;ng tr&#x1ecd;" type="java.lang.Object"/>
                         <Column editable="false" title="M&#xe3; thi&#x1ebf;t b&#x1ecb;" type="java.lang.Object"/>
+                        <Column editable="false" title="M&#xe3; ph&#xf2;ng tr&#x1ecd;" type="java.lang.Object"/>
                         <Column editable="false" title="T&#xea;n thi&#x1ebf;t b&#x1ecb;" type="java.lang.Object"/>
                         <Column editable="false" title="T&#xec;nh tr&#x1ea1;ng" type="java.lang.Object"/>
                       </Table>
@@ -278,6 +303,9 @@
                       <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tbDeviceMouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -285,6 +313,9 @@
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel3">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="37" green="d5" red="8a" type="rgb"/>
+            </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                 <TitledBorder title="Th&#xf4;ng tin thi&#x1ebf;t b&#x1ecb;">
@@ -300,21 +331,24 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="cbPhongTro" min="-2" pref="132" max="-2" attributes="0"/>
+                          <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="tfDeviceID" min="-2" pref="131" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField1" min="-2" pref="104" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="cbRoomID" min="-2" pref="148" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField2" max="32767" attributes="0"/>
+                              <Component id="cbDeviceName" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
+                              <Component id="cbStateDevice" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -326,16 +360,24 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="cbPhongTro" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                              <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="cbDeviceName" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                              <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tfDeviceID" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="cbRoomID" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cbStateDevice" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -343,17 +385,28 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Ph&#xf2;ng:"/>
+                <Property name="text" type="java.lang.String" value="M&#xe3; ph&#xf2;ng tr&#x1ecd; :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="cbPhongTro">
+            <Component class="javax.swing.JLabel" name="jLabel4">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="M&#xe3; thi&#x1ebf;t b&#x1ecb;:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="tfDeviceID">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel7">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="T&#xea;n thi&#x1ebf;t b&#x1ecb;:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="cbStateDevice">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
+                  <StringArray count="3">
+                    <StringItem index="0" value="B&#xec;nh th&#x1b0;&#x1edd;ng"/>
+                    <StringItem index="1" value="C&#x1ea7;n s&#x1eed;a ch&#x1eef;a"/>
+                    <StringItem index="2" value="H&#x1ecf;ng"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -361,105 +414,39 @@
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Container class="javax.swing.JPanel" name="jPanel4">
+            <Component class="javax.swing.JLabel" name="jLabel6">
               <Properties>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="T&#xec;nh tr&#x1ea1;ng thi&#x1ebf;t b&#x1ecb;">
-                      <Font PropertyName="font" name="Dialog" size="14" style="1"/>
-                    </TitledBorder>
-                  </Border>
+                <Property name="text" type="java.lang.String" value="T&#xec;nh tr&#x1ea1;ng:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="cbDeviceName">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="7">
+                    <StringItem index="0" value="M&#xe1;y qu&#x1ea1;t"/>
+                    <StringItem index="1" value="M&#xe1;y l&#x1ea1;nh"/>
+                    <StringItem index="2" value="B&#xe0;n, gh&#x1ebf;"/>
+                    <StringItem index="3" value="T&#x1ee7; &#x111;&#x1ed3;"/>
+                    <StringItem index="4" value="&#x110;&#xe8;n &#x111;i&#x1ec7;n"/>
+                    <StringItem index="5" value="B&#x1ebf;p ga"/>
+                    <StringItem index="6" value=" "/>
+                  </StringArray>
                 </Property>
               </Properties>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="cbThietBi" min="-2" pref="120" max="-2" attributes="0"/>
-                          <EmptySpace pref="67" max="32767" attributes="0"/>
-                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="cbTinhTrang" min="-2" pref="138" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="cbThietBi" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="cbTinhTrang" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel5">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="T&#xea;n thi&#x1ebf;t b&#x1ecb;:"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JComboBox" name="cbThietBi">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="6">
-                        <StringItem index="0" value="M&#xe1;y qu&#x1ea1;t"/>
-                        <StringItem index="1" value="M&#xe1;y l&#x1ea1;nh "/>
-                        <StringItem index="2" value="B&#xe0;n, gh&#x1ebf;"/>
-                        <StringItem index="3" value="&#x110;&#xe8;n &#x111;i&#x1ec7;n"/>
-                        <StringItem index="4" value="T&#x1ee7; &#x111;&#x1ed3;"/>
-                        <StringItem index="5" value="B&#x1ebf;p ga"/>
-                      </StringArray>
-                    </Property>
-                  </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                  </AuxValues>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel6">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="T&#xec;nh tr&#x1ea1;ng:"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JComboBox" name="cbTinhTrang">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="3">
-                        <StringItem index="0" value="B&#xec;nh th&#x1b0;&#x1edd;ng"/>
-                        <StringItem index="1" value="C&#x1ea7;n s&#x1eed;a ch&#x1eef;a"/>
-                        <StringItem index="2" value="H&#x1ecf;ng"/>
-                      </StringArray>
-                    </Property>
-                  </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                  </AuxValues>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Component class="javax.swing.JLabel" name="jLabel4">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="cbRoomID">
               <Properties>
-                <Property name="text" type="java.lang.String" value="M&#xe3; thi&#x1ebf;t b&#x1ecb;:"/>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="0"/>
+                </Property>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextField1">
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel7">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="T&#xea;n thi&#x1ebf;t b&#x1ecb;:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextField2">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>

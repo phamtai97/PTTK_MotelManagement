@@ -5,15 +5,12 @@
  */
 package GUI;
 
-import BUS.GuestBUS;
-import DTO.UserDTO;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -24,7 +21,6 @@ public class QLNhaTroGUI extends javax.swing.JFrame {
     /**
      * Creates new form QLNhaTroGUI
      */
-    
     static QLKhachThueTroGUI qlNguoiThueTroGUI;
     static QLPhongTroGUI qlPhongTroGUI;
     static DangKiThuePhongGUI dangKiThuePhong;
@@ -37,22 +33,21 @@ public class QLNhaTroGUI extends javax.swing.JFrame {
     static DoiMatKhauGUI doiMatKhauGUI;
     static ThongKeGUI thongKeGUI;
     static ThonTinPhanMemGUI thongTinPhanMemGUI;
-    public static UserDTO user;
-    
+
     public QLNhaTroGUI() {
-        
-//        if(Login() == false){
-//            JOptionPane.showMessageDialog(null, "Xin kiểm tra lại.");
+//        if (Login() == false) {
+//            System.exit(0);
 //        }
-        
+
         initComponents();
         //chinh full man hinh
         Dimension dimmax = Toolkit.getDefaultToolkit().getScreenSize();
         this.setMaximumSize(dimmax);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         //////////////////
-        
+
         qlNguoiThueTroGUI = new QLKhachThueTroGUI();
+        qlGiaDichVuGUI = new QLGiaDichVuGUI();
         qlPhongTroGUI = new QLPhongTroGUI();
         dangKiThuePhong = new DangKiThuePhongGUI();
         qlTaiChinh = new QLThuTienTroGUI();
@@ -60,11 +55,10 @@ public class QLNhaTroGUI extends javax.swing.JFrame {
         hopDongGUI = new QLHopDongGUI();
         traPhongGUI = new TraPhongGUI();
         qlChiTieu = new QLChiTieu();
-        qlGiaDichVuGUI = new QLGiaDichVuGUI();
         doiMatKhauGUI = new DoiMatKhauGUI();
         thongKeGUI = new ThongKeGUI();
         thongTinPhanMemGUI = new ThonTinPhanMemGUI();
-        
+
         qlNguoiThueTroGUI.setVisible(false);
         qlPhongTroGUI.setVisible(false);
         dangKiThuePhong.setVisible(false);
@@ -77,8 +71,7 @@ public class QLNhaTroGUI extends javax.swing.JFrame {
         doiMatKhauGUI.setVisible(false);
         thongKeGUI.setVisible(false);
         thongTinPhanMemGUI.setVisible(false);
-        
-        
+
         panelKhungForm.add(qlNguoiThueTroGUI);
         panelKhungForm.add(qlPhongTroGUI);
         panelKhungForm.add(dangKiThuePhong);
@@ -91,9 +84,9 @@ public class QLNhaTroGUI extends javax.swing.JFrame {
         panelKhungForm.add(doiMatKhauGUI);
         panelKhungForm.add(thongKeGUI);
         panelKhungForm.add(thongTinPhanMemGUI);
-        
+
         setLocationRelativeTo(null);
-       
+
     }
 
     /**
@@ -342,49 +335,36 @@ public class QLNhaTroGUI extends javax.swing.JFrame {
     private void Task(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Task
         // TODO add your handling code here:
         String command = evt.getActionCommand();
-        for (int i = 0; i < panelKhungForm.getComponents().length; i++)
-        {
+        for (int i = 0; i < panelKhungForm.getComponents().length; i++) {
             Component cmpnt = panelKhungForm.getComponent(i);
             String n = cmpnt.getName();
-            if(cmpnt.getName().equals(command)){
+            if (cmpnt.getName().equals(command)) {
                 cmpnt.setVisible(true);
+            } else {
+                cmpnt.setVisible(false);
             }
-            else
-            cmpnt.setVisible(false);
         }
     }//GEN-LAST:event_Task
 
-    
     //////////////////////CODE In Hear///////////////////////////
-    public boolean Login(){
+    public boolean Login() {
         String userName = "", password = "";
         LoginGUI login = new LoginGUI(this, true);
         login.setVisible(true);
         userName = login.getUserName();
         password = login.getPassWord();
-        if(userName.length() == 0 || password.length() == 0){
+        if (userName.length() == 0 || password.length() == 0) {
             return false;
         }
-        
-        user = new UserDTO();
-        user.setUsername(userName);
-        user.setPassword(password);
+
         //kiem tra username password
-        GuestBUS guestbus = new GuestBUS();
-        if (guestbus.checkAccount(user) == true) {
-            login.setVisible(false);
-            return true;
-        }
-        return false;
+        login.setVisible(false);
+        return true;
     }
-    
-    
+
     /**
-     * @param ar
-     * gs the command line arguments
+     * @param ar gs the command line arguments
      */
-    
-    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

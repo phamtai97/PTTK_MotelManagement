@@ -69,7 +69,7 @@ public class LoginGUI extends javax.swing.JDialog {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(9, 172, 225));
+        jPanel1.setBackground(new java.awt.Color(138, 213, 55));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 22)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -178,22 +178,22 @@ public class LoginGUI extends javax.swing.JDialog {
 
     // Mã hóa MD5
     public static String md5Java(String message) {
-         
-         String digest = null;
+
+        String digest = null;
 
         try {
-            
+
             MessageDigest md = MessageDigest.getInstance("MD5");
             byte[] hash = md.digest(message.getBytes("UTF-8"));
- 
+
             //converting byte array to Hexadecimal String
             StringBuilder sb = new StringBuilder(2 * hash.length);
             for (byte b : hash) {
                 sb.append(String.format("%02x", b & 0xff));
             }
- 
+
             digest = sb.toString();
-            
+
             return digest;
         } catch (NoSuchAlgorithmException ex) {
             Logger.getLogger(LoginGUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -202,21 +202,15 @@ public class LoginGUI extends javax.swing.JDialog {
         }
         return "";
     }
-    
+
     //sự kiện bấm nút login 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         _userName = tfUserName.getText();
         _password = md5Java(String.valueOf(tfPassword.getPassword()));
-        
-        //String userName = "", password = "";
-        //LoginGUI login = new LoginGUI(this, true);
-        //login.setVisible(true);
-        //userName = login.getUserName();
-        //password = login.getPassWord();
-        if(_userName.length() == 0 || _password.length() == 0){
+        if (_userName.length() == 0 || _password.length() == 0) {
             JOptionPane.showMessageDialog(null, "Xin kiểm tra lại");
         }
-        
+
         UserDTO user = new UserDTO();
         user.setUsername(_userName);
         user.setPassword(_password);
@@ -225,24 +219,21 @@ public class LoginGUI extends javax.swing.JDialog {
         if (guestbus.checkAccount(user) == true) {
             //login.setVisible(false);
             this.setVisible(false);
-           // return true;
-           java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new QLNhaTroGUI().setVisible(true);
-            }
-        });
-        }
-        else 
-        {
+            // return true;
+            java.awt.EventQueue.invokeLater(new Runnable() {
+                public void run() {
+                    new QLNhaTroGUI().setVisible(true);
+                }
+            });
+        } else {
             JOptionPane.showMessageDialog(null, "Xin kiểm tra lại");
 
         }
-        //return false;
-        //setVisible(false);
-        //dispose();
+
+//        setVisible(false);
+//        dispose();
     }//GEN-LAST:event_btnLoginActionPerformed
 
-    
     //Sự kiện bấm nút cancel 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         _userName = "";

@@ -13,13 +13,17 @@ public class DeviceDTO {
     private String _deviceID;
     private String _roomID;
     private String _deviceName;
-    private String _stateDevice;
+    private int _stateDevice;
 
-    public DeviceDTO(String _deviceID, String _roomID, String _deviceName, String _stateDevice) {
+    public DeviceDTO(String _deviceID, String _roomID, String _deviceName, int _stateDevice) {
         this._deviceID = _deviceID;
         this._roomID = _roomID;
         this._deviceName = _deviceName;
         this._stateDevice = _stateDevice;
+    }
+
+    public DeviceDTO() {
+        
     }
 
     public String getDeviceID() {
@@ -46,13 +50,11 @@ public class DeviceDTO {
         this._deviceName = _deviceName;
     }
 
-    public String getStateDevice() {
+    public int getStateDevice() {
         return _stateDevice;
     }
 
-    public void setStateDevice(String _stateDevice) {
+    public void setStateDevice(int _stateDevice) {
         this._stateDevice = _stateDevice;
     }
-    
-    
 }

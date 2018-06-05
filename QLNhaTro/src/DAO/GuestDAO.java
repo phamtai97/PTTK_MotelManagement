@@ -32,7 +32,7 @@ public class GuestDAO {
     }
 
     // Kiem tra tai khoan
-    public boolean CheckAcount(UserDTO user) {
+    public boolean checkAccount(UserDTO user) {
         String sql = "select * from User_KhachTro where TenDangNhap='" + user.getUsername() + "' and MatKhau='" + user.getPassword() + "' and IsAdmin=1";
         
         //String sql = String.format("select * from ", os)
@@ -43,20 +43,17 @@ public class GuestDAO {
             if (this._resultSet.next() == false) {
                 return false;
             }
-            else {
-                return true;
-            }
         } catch (SQLException ex) {
             Logger.getLogger(GuestDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return false;
+        return true;
     }
     //lay tat ca khach thue tro
     public ArrayList<GuestDTO> getAllGuest() {
-        String sql = "select MaKhachTro, TenKhachTro, Phai, NgaySinh, QueQuan , CMND, DiaChiThuongTru, NgheNghiep, DienThoai, TinhTrang from KhachTro";
+        String mmsql = "select MaKhachTro, TenKhachTro, Phai, NgaySinh, QueQuan , CMND, DiaChiThuongTru, NgheNghiep, DienThoai, TinhTrang from KhachTro";
         ArrayList listGuest = new ArrayList<>();
         try {
-            _preparedStatement = _dataProvider.getDataConnection().prepareStatement(sql);
+            _preparedStatement = _dataProvider.getDataConnection().prepareStatement(mmsql);
             _resultSet = _preparedStatement.executeQuery();
             while (_resultSet.next()) {
                 GuestDTO guest = new GuestDTO();
@@ -82,11 +79,11 @@ public class GuestDAO {
 
     //them khach thue tro
     public boolean insertGuest(GuestDTO guest) {
-        String sql = "insert into KhachTro(MaKhachTro, TenKhachTro, Phai, NgaySinh, QueQuan , CMND, DiaChiThuongTru, NgheNghiep, DienThoai, TinhTrang)"
+        String msql = "insert into KhachTro(MaKhachTro, TenKhachTro, Phai, NgaySinh, QueQuan , CMND, DiaChiThuongTru, NgheNghiep, DienThoai, TinhTrang)"
                 + "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
 
         try {
-            _preparedStatement = _dataProvider.getDataConnection().prepareStatement(sql);
+            _preparedStatement = _dataProvider.getDataConnection().prepareStatement(msql);
 
             _preparedStatement.setString(1, guest.getGuestID());
             _preparedStatement.setString(2, guest.getGuestName());
@@ -107,9 +104,9 @@ public class GuestDAO {
 
     //xoa khach tro
     public boolean deleteGuest(String guestName, int stateGuest) {
-        String sql = "delete from KhachTro where MaKhachTro = ? and TinhTrang = ?";
+        String msql = "delete from KhachTro where MaKhachTro = ? and TinhTrang = ?";
         try {
-            _preparedStatement = _dataProvider.getDataConnection().prepareStatement(sql);
+            _preparedStatement = _dataProvider.getDataConnection().prepareStatement(msql);
             _preparedStatement.setString(1, guestName);
             _preparedStatement.setInt(2, stateGuest);
             return _preparedStatement.executeUpdate() > 0;
@@ -121,9 +118,9 @@ public class GuestDAO {
 
     //update khach tro
     public boolean updateGuest(GuestDTO guest) {
-        String sql = "update KhachTro set TenKhachTro = ?, Phai = ?, NgaySinh = ?, QueQuan = ?, CMND = ?, DiaChiThuongTru = ?, NgheNghiep = ?, DienThoai = ?, TinhTrang = ? where MaKhachTro = ?";
+        String msql = "update KhachTro set TenKhachTro = ?, Phai = ?, NgaySinh = ?, QueQuan = ?, CMND = ?, DiaChiThuongTru = ?, NgheNghiep = ?, DienThoai = ?, TinhTrang = ? where MaKhachTro = ?";
         try {
-            _preparedStatement = _dataProvider.getDataConnection().prepareCall(sql);
+            _preparedStatement = _dataProvider.getDataConnection().prepareCall(msql);
             _preparedStatement.setString(1, guest.getGuestName());
             _preparedStatement.setString(2, guest.getSex());
             _preparedStatement.setDate(3, new Date(guest.getDob().getTime()));
@@ -143,10 +140,10 @@ public class GuestDAO {
 
     //tim kiem khach tro theo 
     public ArrayList<GuestDTO> findGuestBy(String type, String input) {
-        String sql = "Select * from KhachTro where " + type + " = ?";
+        String msql = "select * from KhachTro where " + type + " = ?";
         ArrayList listGuest = new ArrayList<>();
         try {
-            _preparedStatement = _dataProvider.getDataConnection().prepareCall(sql);
+            _preparedStatement = _dataProvider.getDataConnection().prepareCall(msql);
             _preparedStatement.setString(1, input);
             _resultSet = _preparedStatement.executeQuery();
             while (_resultSet.next()) {
@@ -172,11 +169,11 @@ public class GuestDAO {
 
     //tìm kiem khach tro theo tẻn
     public ArrayList<GuestDTO> findGuestBYName(String guestName) {
-        String sql = "select* from KhachTro where TenKhachTro like N'%" + guestName + "%'";
+        String msql = "select* from KhachTro where TenKhachTro like N'%" + guestName + "%'";
         ArrayList<GuestDTO> listGuest = new ArrayList<>();
         PreparedStatement ps;
         try {
-            _preparedStatement = _dataProvider.getDataConnection().prepareCall(sql);
+            _preparedStatement = _dataProvider.getDataConnection().prepareCall(msql);
             _resultSet = _preparedStatement.executeQuery();
             while (_resultSet.next()) {
                 GuestDTO guest = new GuestDTO();
@@ -194,8 +191,23 @@ public class GuestDAO {
             }
             return listGuest;
         } catch (SQLException ex) {
-            //Logger.getLogger(HocSinhDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GuestDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+
+    //update state guset
+    public boolean updateStateGuest(String gusetID) {
+        String msql = "update KhachTro set TinhTrang = ? where MaKhachTro = ?";
+        try {
+            _preparedStatement = _dataProvider.getDataConnection().prepareCall(msql);
+            _preparedStatement.setInt(1, 1);
+            _preparedStatement.setString(2, gusetID);
+            return _preparedStatement.executeUpdate() > 0;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(GuestDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
 }

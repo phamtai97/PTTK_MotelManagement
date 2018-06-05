@@ -19,13 +19,12 @@ public class FindGuestDialog extends javax.swing.JDialog {
     /**
      * Creates new form FindGuestDialog
      */
-    private DefaultTableModel _tableModel;
+    private DefaultTableModel _tableModel = new DefaultTableModel();
 
     public FindGuestDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        setLocationRelativeTo(null);
-
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -45,6 +44,7 @@ public class FindGuestDialog extends javax.swing.JDialog {
         btnExit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(254, 254, 254));
 
