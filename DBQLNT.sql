@@ -323,7 +323,7 @@ CREATE TABLE `User_KhachTro` (
 LOCK TABLES `User_KhachTro` WRITE;
 /*!40000 ALTER TABLE `User_KhachTro` DISABLE KEYS */;
 /*!40000 ALTER TABLE `User_KhachTro` ENABLE KEYS */;
-INSERT INTO `User_KhachTro`(TenDangNhap, MatKhau, IsAdmin) VALUES('admin', '21232f297a57a5a743894a0e4a801fc3', 1) 
+INSERT INTO `User_KhachTro`(TenDangNhap, MatKhau, IsAdmin) VALUES('admin', '21232f297a57a5a743894a0e4a801fc3', 1);
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

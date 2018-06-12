@@ -3,13 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/billg/Desktop/QLNhaTro/src/GUI/LoginGUI.java</file>
-            <file>file:/C:/Users/billg/Desktop/QLNhaTro/src/config.properties</file>
-            <file>file:/C:/Users/billg/Desktop/QLNhaTro/src/DTO/GuestDTO.java</file>
-            <file>file:/C:/Users/billg/Desktop/QLNhaTro/src/GUI/QLNhaTroGUI.java</file>
-            <file>file:/C:/Users/billg/Desktop/QLNhaTro/src/DTO/UserDTO.java</file>
-            <file>file:/C:/Users/billg/Desktop/QLNhaTro/src/DAO/GuestDAO.java</file>
-            <file>file:/C:/Users/billg/Desktop/QLNhaTro/src/BUS/GuestBUS.java</file>
+            <file>file:/Users/phantrongthuyen/Desktop/PTTK_MotelManagement/QLNhaTro/src/DTO/PaymentDTO.java</file>
+            <file>file:/Users/phantrongthuyen/Desktop/PTTK_MotelManagement/QLNhaTro/src/GUI/PrintGUI.java</file>
+            <file>file:/Users/phantrongthuyen/Desktop/PTTK_MotelManagement/QLNhaTro/src/GUI/QLChiTieu.java</file>
         </group>
     </open-files>
 </project-private>

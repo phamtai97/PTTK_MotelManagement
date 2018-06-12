@@ -38,7 +38,7 @@ public class QLChiTieu extends javax.swing.JInternalFrame {
         btnHuyKhachThue1 = new javax.swing.JButton();
         btnResetKhachThue1 = new javax.swing.JButton();
         btnThoat1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jbtnXuatPhieuChi = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         spNgayChi = new javax.swing.JSpinner();
@@ -100,10 +100,15 @@ public class QLChiTieu extends javax.swing.JInternalFrame {
         btnThoat1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnThoat1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icon_xuathoadon.png"))); // NOI18N
-        jButton2.setText("Xuất phiếu chi");
-        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jbtnXuatPhieuChi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icon_xuathoadon.png"))); // NOI18N
+        jbtnXuatPhieuChi.setText("Xuất phiếu chi");
+        jbtnXuatPhieuChi.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jbtnXuatPhieuChi.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jbtnXuatPhieuChi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnXuatPhieuChiActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -125,7 +130,7 @@ public class QLChiTieu extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnThoat1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
+                .addComponent(jbtnXuatPhieuChi)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -139,7 +144,7 @@ public class QLChiTieu extends javax.swing.JInternalFrame {
                     .addComponent(btnHuyKhachThue1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnResetKhachThue1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnThoat1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jbtnXuatPhieuChi, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -349,6 +354,11 @@ public class QLChiTieu extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfTienChiActionPerformed
 
+    private void jbtnXuatPhieuChiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnXuatPhieuChiActionPerformed
+        // TODO add your handling code here:
+        new PrintGUI().setVisible(true);
+    }//GEN-LAST:event_jbtnXuatPhieuChiActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnHuyKhachThue1;
@@ -361,7 +371,6 @@ public class QLChiTieu extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> cbThongKeNam;
     private javax.swing.JComboBox<String> cbThongKeThang;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -377,6 +386,7 @@ public class QLChiTieu extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton jbtnXuatPhieuChi;
     private javax.swing.JSpinner spNgayChi;
     private javax.swing.JTable tbThuChi;
     private javax.swing.JTextField tfGhiChu;

@@ -15,7 +15,6 @@ public class PaymentDTO {
     private String _contentPayment;
     private int _moneyPayment;
     private String _note;
-
     public PaymentDTO(String _paymentBillID, String _datePayment, String _contentPayment, int _moneyPayment, String _note) {
         this._paymentBillID = _paymentBillID;
         this._datePayment = _datePayment;

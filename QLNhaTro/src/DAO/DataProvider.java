@@ -37,7 +37,7 @@ public class DataProvider {
             userName = properties.getProperty("username");
             password = properties.getProperty("password");
             
-            url = url + hostName + ":3306/" + databaseName;
+            url = url + hostName + ":3306/" + databaseName + "?useSSL=false";
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -49,10 +49,9 @@ public class DataProvider {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             conn = (Connection) DriverManager.getConnection(url, userName, password);
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(DataProvider.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(DataProvider.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
         }
         
         return conn;

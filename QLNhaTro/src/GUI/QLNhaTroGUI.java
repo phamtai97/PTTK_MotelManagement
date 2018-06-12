@@ -86,7 +86,6 @@ public class QLNhaTroGUI extends javax.swing.JFrame {
         panelKhungForm.add(thongTinPhanMemGUI);
 
         setLocationRelativeTo(null);
-
     }
 
     /**
@@ -365,6 +364,8 @@ public class QLNhaTroGUI extends javax.swing.JFrame {
     /**
      * @param ar gs the command line arguments
      */
+    
+    public static QLNhaTroGUI instance = new QLNhaTroGUI();
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -390,9 +391,10 @@ public class QLNhaTroGUI extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new QLNhaTroGUI().setVisible(true);
+                instance.setVisible(true);
             }
         });
     }

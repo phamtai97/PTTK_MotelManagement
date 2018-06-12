@@ -58,7 +58,7 @@ public class LoginGUI extends javax.swing.JDialog {
         jScrollPane2.setViewportView(jEditorPane1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Login Tool");
+        setTitle("Login");
         setBackground(new java.awt.Color(102, 153, 255));
         setForeground(new java.awt.Color(51, 204, 255));
         setName("Login Tool"); // NOI18N
@@ -88,7 +88,6 @@ public class LoginGUI extends javax.swing.JDialog {
         tfPassword.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
         btnLogin.setBackground(new java.awt.Color(254, 254, 254));
-        btnLogin.setForeground(new java.awt.Color(0, 0, 0));
         btnLogin.setText("Login");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,7 +96,6 @@ public class LoginGUI extends javax.swing.JDialog {
         });
 
         btnCancel.setBackground(new java.awt.Color(254, 254, 254));
-        btnCancel.setForeground(new java.awt.Color(0, 0, 0));
         btnCancel.setText("Cancel");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -248,7 +246,7 @@ public class LoginGUI extends javax.swing.JDialog {
         _password = "";
         setVisible(false);
         dispose();        // TODO add your handling code here:
-        System.exit(0);
+        //System.exit(0);
     }//GEN-LAST:event_formWindowClosing
 
     public String getUserName() {

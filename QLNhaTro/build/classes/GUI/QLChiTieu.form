@@ -108,7 +108,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnThoat1" min="-2" pref="83" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                      <Component id="jbtnXuatPhieuChi" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -124,7 +124,7 @@
                           <Component id="btnHuyKhachThue1" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
                           <Component id="btnResetKhachThue1" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
                           <Component id="btnThoat1" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
-                          <Component id="jButton2" min="-2" pref="83" max="-2" attributes="0"/>
+                          <Component id="jbtnXuatPhieuChi" min="-2" pref="83" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -202,7 +202,7 @@
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton2">
+            <Component class="javax.swing.JButton" name="jbtnXuatPhieuChi">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/image/icon_xuathoadon.png"/>
@@ -211,6 +211,9 @@
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbtnXuatPhieuChiActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
