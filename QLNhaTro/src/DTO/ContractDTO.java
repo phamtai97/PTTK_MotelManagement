@@ -20,6 +20,15 @@ public class ContractDTO {
     private int _deposits;//tiền đặt cọc
     private String _stateContract;
 
+    public ContractDTO() {
+        this._contrractID = "";
+        this._startDateRent = new Date();
+        this._guestID = "KT001";
+        this._roomID = "PT001";
+        this._endDateRent = new Date();
+        this._deposits = 2000000;
+        this._stateContract = "";
+    }
     public ContractDTO(String _contrractID, Date _startDateRent, String _guestID, String _roomID, Date _endDateRent, int _deposits, String _stateContract) {
         this._contrractID = _contrractID;
         this._startDateRent = _startDateRent;

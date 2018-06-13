@@ -5,6 +5,20 @@
  */
 package GUI;
 
+import BUS.ContractBUS;
+import DTO.ContractDTO;
+import java.io.File;
+import java.io.FileFilter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
+
 /**
  *
  * @author taipham
@@ -52,7 +66,7 @@ public class QLHopDongGUI extends javax.swing.JInternalFrame {
         tbDanhSachHopDong = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnXuatHopDong = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
 
@@ -233,10 +247,15 @@ public class QLHopDongGUI extends javax.swing.JInternalFrame {
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icon_xuathoadon.png"))); // NOI18N
-        jButton2.setText("Xuất hợp đồng");
-        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnXuatHopDong.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icon_xuathoadon.png"))); // NOI18N
+        btnXuatHopDong.setText("Xuất hợp đồng");
+        btnXuatHopDong.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnXuatHopDong.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnXuatHopDong.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXuatHopDongActionPerformed(evt);
+            }
+        });
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icon_xoa.png"))); // NOI18N
         jButton3.setText("Xóa");
@@ -261,7 +280,7 @@ public class QLHopDongGUI extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(btnXuatHopDong)
                 .addGap(18, 18, 18)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -273,7 +292,7 @@ public class QLHopDongGUI extends javax.swing.JInternalFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnXuatHopDong, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 6, Short.MAX_VALUE))
@@ -323,10 +342,32 @@ public class QLHopDongGUI extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void btnXuatHopDongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXuatHopDongActionPerformed
+        // TODO add your handling code here:
+        ContractDTO contract = new ContractDTO();
+        ContractBUS contractBUS = new ContractBUS();
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setFileFilter(new FileNameExtensionFilter("Document File", "docx"));
+        File file = null;
+        String filePath = "";
+        if (fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
+            file = fileChooser.getSelectedFile();
+            if (!file.getName().endsWith(".docx")) {
+                filePath = file.getAbsolutePath() + ".docx";
+            }
+            else {
+                filePath = file.getAbsolutePath();
+            }
+        }
+        if (file != null) {
+            contractBUS.XuatHopDong(contract, filePath);
+        }
+    }//GEN-LAST:event_btnXuatHopDongActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnXuatHopDong;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
