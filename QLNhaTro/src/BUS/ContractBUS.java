@@ -134,8 +134,8 @@ public class ContractBUS {
         run.setText("NỘI DUNG HỢP ĐỒNG");
         paragraph = document.createParagraph();
         run = paragraph.createRun();
-        run.setText("1. Bên A cho bên B thuê phòng: ");
-        run.addTab();
+        run.setText("1. Bên A cho bên B thuê phòng: " + contract.getRoomID());
+        run.addBreak();
         run.setText("Thời hạn hợp đồng: ");
         run.addTab();
         run.setText("(từ " + sdf.format(contract.getStartDateRent())); run.setText(" đến " + sdf.format(contract.getEndDateRent())); run.setText(")");
