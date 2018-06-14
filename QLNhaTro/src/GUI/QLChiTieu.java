@@ -5,6 +5,14 @@
  */
 package GUI;
 
+import BUS.PaymentBUS;
+import DTO.PaymentDTO;
+import java.io.File;
+import java.util.ArrayList;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 /**
  *
  * @author taipham
@@ -356,7 +364,38 @@ public class QLChiTieu extends javax.swing.JInternalFrame {
 
     private void jbtnXuatPhieuChiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnXuatPhieuChiActionPerformed
         // TODO add your handling code here:
-        new PrintGUI().setVisible(true);
+        PaymentBUS paymentBUS = new PaymentBUS();
+        
+        // Lấy từ GUI ra
+        ArrayList<PaymentDTO> listPayment = new ArrayList<PaymentDTO>();
+        
+        PaymentDTO item = new PaymentDTO();
+        listPayment.add(item);
+        
+        
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setFileFilter(new FileNameExtensionFilter("Document File", ".docx"));
+        File file = null;
+        String filePath = "";
+        if (fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
+            file = fileChooser.getSelectedFile();
+            if (!file.getName().endsWith(".docx")) {
+                filePath = file.getAbsolutePath() + ".docx";
+            }
+            else {
+                filePath = file.getAbsolutePath();
+            }
+        }
+        boolean check = false;
+        if (file != null) {
+            check = paymentBUS.XuatPhieuChi(listPayment, filePath);
+        }
+        if (check == false) {
+            JOptionPane.showMessageDialog(null, "Xuất phiếu chi không thành công");
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Xuất phiếu chi thành công");
+        }
     }//GEN-LAST:event_jbtnXuatPhieuChiActionPerformed
 
 

@@ -5,17 +5,27 @@
  */
 package DTO;
 
+import java.util.Date;
+
 /**
  *
  * @author taipham
  */
 public class PaymentDTO {
     private String _paymentBillID;
-    private String _datePayment;
+    private Date _datePayment;
     private String _contentPayment;
     private int _moneyPayment;
     private String _note;
-    public PaymentDTO(String _paymentBillID, String _datePayment, String _contentPayment, int _moneyPayment, String _note) {
+    
+    public PaymentDTO() {
+        this._paymentBillID = "";
+        this._datePayment = new Date();
+        this._contentPayment = "No content";
+        this._moneyPayment = 0;
+        this._note = "No note";
+    }
+    public PaymentDTO(String _paymentBillID, Date _datePayment, String _contentPayment, int _moneyPayment, String _note) {
         this._paymentBillID = _paymentBillID;
         this._datePayment = _datePayment;
         this._contentPayment = _contentPayment;
@@ -31,11 +41,11 @@ public class PaymentDTO {
         this._paymentBillID = _paymentBillID;
     }
 
-    public String getDatePayment() {
+    public Date getDatePayment() {
         return _datePayment;
     }
 
-    public void setDatePayment(String _datePayment) {
+    public void setDatePayment(Date _datePayment) {
         this._datePayment = _datePayment;
     }
 

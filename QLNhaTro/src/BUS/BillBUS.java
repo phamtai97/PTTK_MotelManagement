@@ -32,12 +32,17 @@ public class BillBUS {
     public BillBUS() {
         this.billDAO = new BillDAO();
     }
-    public void XuatHoaDon(ArrayList<UseServiceDTO> listUseService, String fileName) {
+    public boolean XuatHoaDon(ArrayList<UseServiceDTO> listUseService, String fileName) {
         ArrayList<BillInfoDTO> listBillInfo = new ArrayList<BillInfoDTO>();
         listBillInfo = billDAO.LayThongTinThanhToanDichVu(listUseService.get(0).getRoomID());
         ServiceBUS serviceBUS = new ServiceBUS();
         ArrayList<ServiceDTO> listService = new ArrayList<ServiceDTO>();
         listService = serviceBUS.LayThongTinDichVu();
+        
+        if (listBillInfo.isEmpty() || listService.isEmpty()) {
+            return false;
+        }
+        
         
         XWPFDocument document = new XWPFDocument();
         XWPFParagraph paragraph = document.createParagraph();
@@ -115,11 +120,12 @@ public class BillBUS {
             output = new FileOutputStream(fileName);
             document.write(output);
             output.close();
+            return true;
         } catch (FileNotFoundException ex) {
             Logger.getLogger(BillBUS.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(BillBUS.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        return false;
     }
 }

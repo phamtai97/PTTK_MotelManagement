@@ -38,7 +38,7 @@ public class ContractBUS {
     public ContractBUS() {
         this.contractDAO = new ContractDAO();
     }
-    public void XuatHopDong(ContractDTO contract, String fileName) {
+    public boolean XuatHopDong(ContractDTO contract, String fileName) {
         // từ contract lấy được guestid, roomid => guestid lấy thông tin khách
         // room id lấy thông tin thiết bị
         ArrayList<RegistrationRoomDTO> DanhSachDangKi = new ArrayList<RegistrationRoomDTO>();
@@ -77,7 +77,7 @@ public class ContractBUS {
         }
         
         if (DanhSachThanhVien.isEmpty()) {
-            return;
+            return false;
         }
         
         XWPFDocument document = new XWPFDocument();
@@ -274,11 +274,13 @@ public class ContractBUS {
             FileOutputStream output = new FileOutputStream(fileName);
             document.write(output);
             output.close();
+            return true;
 
         } catch (FileNotFoundException ex) {
             Logger.getLogger(ContractBUS.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(ContractBUS.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return false;
     }
 }

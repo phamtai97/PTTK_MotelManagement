@@ -359,8 +359,16 @@ public class QLHopDongGUI extends javax.swing.JInternalFrame {
                 filePath = file.getAbsolutePath();
             }
         }
+
+        boolean check = false;
         if (file != null) {
-            contractBUS.XuatHopDong(contract, filePath);
+            check = contractBUS.XuatHopDong(contract, filePath);
+        }
+        if (check == false) {
+            JOptionPane.showMessageDialog(null, "Xuất hợp đồng không thành công");
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Xuất hợp đồng");
         }
     }//GEN-LAST:event_btnXuatHopDongActionPerformed
 
