@@ -5,6 +5,13 @@
  */
 package GUI;
 
+import BUS.BillBUS;
+import DTO.UseServiceDTO;
+import java.io.File;
+import java.util.ArrayList;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 /**
  *
  * @author taipham
@@ -391,6 +398,11 @@ public class QLThuTienTroGUI extends javax.swing.JInternalFrame {
         btnXuatHoaDon.setText("Xuất hóa đơn");
         btnXuatHoaDon.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnXuatHoaDon.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnXuatHoaDon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXuatHoaDonActionPerformed(evt);
+            }
+        });
 
         btnReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icon_reset.png"))); // NOI18N
         btnReset.setText("Reset");
@@ -477,6 +489,45 @@ public class QLThuTienTroGUI extends javax.swing.JInternalFrame {
     private void tfKhacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfKhacActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfKhacActionPerformed
+
+    private void btnXuatHoaDonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXuatHoaDonActionPerformed
+        // TODO add your handling code here:
+        ArrayList<UseServiceDTO> listUseService = new ArrayList<UseServiceDTO>();
+        UseServiceDTO item1 = new UseServiceDTO();
+        item1.setRoomID("PT001");
+        item1.setServiceID("DIEN");
+        item1.setNewValue(3200);
+        UseServiceDTO item2 = new UseServiceDTO();
+        item2.setRoomID("PT001");
+        item2.setServiceID("NUOC");
+        item2.setNewValue(35);
+        UseServiceDTO item3 = new UseServiceDTO();
+        item3.setRoomID("PT001");
+        item3.setServiceID("INTERNET");
+        item3.setNewValue(1);
+        listUseService.add(item1);
+        listUseService.add(item2);
+        listUseService.add(item3);
+
+        BillBUS billBUS = new BillBUS();
+        
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setFileFilter(new FileNameExtensionFilter("Document File", ".docx"));
+        File file = null;
+        String filePath = "";
+        if (fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
+            file = fileChooser.getSelectedFile();
+            if (!file.getName().endsWith(".docx")) {
+                filePath = file.getAbsolutePath() + ".docx";
+            }
+            else {
+                filePath = file.getAbsolutePath();
+            }
+        }
+        if (file != null) {
+            billBUS.XuatHoaDon(listUseService, filePath);
+        }
+    }//GEN-LAST:event_btnXuatHoaDonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

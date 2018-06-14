@@ -17,17 +17,35 @@ public class UseServiceDTO {
     private Date _startDateUse;
     private Date _endDateUse;
     private int _oldValue;
+    private int _newValue;
 
-    public UseServiceDTO(String _serviceID, String _roomID, Date _startDateUse, Date _endDateUse, int _oldValue) {
+    public UseServiceDTO() {
+        this._serviceID = "";
+        this._roomID = "";
+        this._startDateUse = new Date();
+        this._endDateUse = new Date();
+        this._oldValue = 0;
+        this._newValue = 0;
+    }
+    public UseServiceDTO(String _serviceID, String _roomID, Date _startDateUse, Date _endDateUse, int _oldValue, int _newValue) {
         this._serviceID = _serviceID;
         this._roomID = _roomID;
         this._startDateUse = _startDateUse;
         this._endDateUse = _endDateUse;
         this._oldValue = _oldValue;
+        this._newValue = _newValue;
     }
 
     public String getServiceID() {
         return _serviceID;
+    }
+
+    public void setNewValue(int _newValue) {
+        this._newValue = _newValue;
+    }
+
+    public int getNewValue() {
+        return _newValue;
     }
 
     public void setServiceID(String _serviceID) {

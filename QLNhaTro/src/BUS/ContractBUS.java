@@ -10,9 +10,13 @@ import DTO.ContractDTO;
 import DTO.DeviceDTO;
 import DTO.GuestDTO;
 import DTO.RegistrationRoomDTO;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -270,6 +274,7 @@ public class ContractBUS {
             FileOutputStream output = new FileOutputStream(fileName);
             document.write(output);
             output.close();
+
         } catch (FileNotFoundException ex) {
             Logger.getLogger(ContractBUS.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {

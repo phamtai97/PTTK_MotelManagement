@@ -14,6 +14,9 @@ public class ServiceDTO {
     private String _serviceName;
     private int _servicePrice;
 
+    public ServiceDTO() {
+        
+    }
     public ServiceDTO(String _serviceID, String _serviceName, int _servicePrice) {
         this._serviceID = _serviceID;
         this._serviceName = _serviceName;

@@ -347,7 +347,7 @@ public class QLHopDongGUI extends javax.swing.JInternalFrame {
         ContractDTO contract = new ContractDTO();
         ContractBUS contractBUS = new ContractBUS();
         JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setFileFilter(new FileNameExtensionFilter("Document File", "docx"));
+        fileChooser.setFileFilter(new FileNameExtensionFilter("Document File", ".docx"));
         File file = null;
         String filePath = "";
         if (fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
